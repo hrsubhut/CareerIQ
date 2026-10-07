@@ -1,0 +1,69 @@
+{
+  "overview": {
+    "totalJobsAnalyzed": 17400,
+    "averageSalary": "$112,400",
+    "topRole": "Data Analyst (4,820 postings)",
+    "topSkill": "Python (74.2% of postings)",
+    "topLocation": "Bengaluru / Remote-Friendly",
+    "dataPeriod": "2024-2025 Market Benchmark",
+    "datasetName": "Aggregated Industry Analytics & Data Science Corpus",
+    "recordsAnalyzed": {
+      "analyticsJobs": 15800,
+      "dataScienceJobs": 1600
+    },
+    "lastUpdated": "2026-10-01"
+  },
+  "charts": {
+    "demandByRole": [
+      { "role": "Data Analyst", "jobCount": 5420, "avgSalaryK": 92, "growthYoY": "+14%" },
+      { "role": "Data Scientist", "jobCount": 4180, "avgSalaryK": 132, "growthYoY": "+21%" },
+      { "role": "BI Analyst", "jobCount": 3210, "avgSalaryK": 98, "growthYoY": "+9%" },
+      { "role": "Senior Data Analyst", "jobCount": 2650, "avgSalaryK": 114, "growthYoY": "+12%" },
+      { "role": "ML Engineer", "jobCount": 1940, "avgSalaryK": 148, "growthYoY": "+29%" }
+    ],
+    "salaryByRole": [
+      { "role": "Data Analyst", "p25": 75, "median": 92, "p75": 105 },
+      { "role": "BI Analyst", "p25": 80, "median": 98, "p75": 115 },
+      { "role": "Senior Analyst", "p25": 95, "median": 114, "p75": 130 },
+      { "role": "Data Scientist", "p25": 110, "median": 132, "p75": 160 },
+      { "role": "ML Engineer", "p25": 125, "median": 148, "p75": 180 }
+    ],
+    "salaryVsExperience": [
+      { "yearsExp": 1, "salaryK": 72, "role": "Data Analyst" },
+      { "yearsExp": 2, "salaryK": 84, "role": "Data Analyst" },
+      { "yearsExp": 3, "salaryK": 96, "role": "BI Analyst" },
+      { "yearsExp": 4, "salaryK": 112, "role": "Senior Data Analyst" },
+      { "yearsExp": 5, "salaryK": 128, "role": "Data Scientist" },
+      { "yearsExp": 6, "salaryK": 142, "role": "Data Scientist" },
+      { "yearsExp": 7, "salaryK": 158, "role": "ML Engineer" },
+      { "yearsExp": 8, "salaryK": 174, "role": "ML Engineer" }
+    ],
+    "demandByLocation": [
+      { "location": "Bengaluru", "count": 4890, "remotePct": 42 },
+      { "location": "Hyderabad", "count": 2780, "remotePct": 38 },
+      { "location": "NCR / Delhi", "count": 2450, "remotePct": 35 },
+      { "location": "Pune & Mumbai", "count": 2310, "remotePct": 40 },
+      { "location": "Fully Remote (Global)", "count": 3420, "remotePct": 100 },
+      { "location": "Other Tier-1", "count": 1550, "remotePct": 30 }
+    ],
+    "experienceRequirements": [
+      { "bracket": "0 - 1 Years (Entry)", "percentage": 14 },
+      { "bracket": "1 - 3 Years (Mid-Junior)", "percentage": 34 },
+      { "bracket": "3 - 5 Years (Mid-Senior)", "percentage": 31 },
+      { "bracket": "5 - 8 Years (Senior/Lead)", "percentage": 16 },
+      { "bracket": "8+ Years (Principal/Staff)", "percentage": 5 }
+    ],
+    "jobTypeDistribution": [
+      { "type": "Full-Time (Onsite/Hybrid)", "count": 9840, "percentage": 56.6 },
+      { "type": "Full-Time (Remote)", "count": 5220, "percentage": 30.0 },
+      { "type": "Contract / High-Growth Project", "count": 1840, "percentage": 10.6 },
+      { "type": "Part-Time / Advisory", "count": 500, "percentage": 2.8 }
+    ],
+    "insights": {
+      "roleDemand": "Data Analyst and Data Scientist roles represent over 55% of all active hiring in the 2024-25 sample.",
+      "salary": "Transitioning from Data Analyst to Data Scientist yields an observed median salary increase of +43.5%.",
+      "experience": "The steepest compensation inflection occurs between 3 and 5 years of experience when machine learning proficiency is proven.",
+      "location": "Remote-capable roles offer a 12% salary premium compared to purely local office positions."
+    }
+  }
+}

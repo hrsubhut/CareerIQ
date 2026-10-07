@@ -1,0 +1,26 @@
+{
+  "id": "usr_dev_saini",
+  "name": "Dev Saini",
+  "email": "dev.saini@careerpath.ai",
+  "currentRole": "Data Analyst",
+  "targetRole": "Data Scientist",
+  "yearsOfExperience": 2,
+  "education": "B.Tech in Computer Science",
+  "location": "Bengaluru, India",
+  "careerReadiness": 72,
+  "profileStrength": 84,
+  "matchingCareersCount": 6,
+  "criticalSkillGapsCount": 2,
+  "marketOpportunity": "High",
+  "careerInterests": ["Data Analytics", "Data Science", "Machine Learning"],
+  "skills": [
+    { "name": "Python", "level": "Advanced", "verified": true, "yearsOfExperience": 2 },
+    { "name": "SQL", "level": "Intermediate", "verified": true, "yearsOfExperience": 2 },
+    { "name": "Excel", "level": "Advanced", "verified": true, "yearsOfExperience": 3 },
+    { "name": "Power BI", "level": "Intermediate", "verified": false, "yearsOfExperience": 1.5 },
+    { "name": "Data Visualization", "level": "Intermediate", "verified": true, "yearsOfExperience": 2 },
+    { "name": "Statistics", "level": "Beginner", "verified": false, "yearsOfExperience": 1 },
+    { "name": "Machine Learning", "level": "Beginner", "verified": false, "yearsOfExperience": 0.5 }
+  ],
+  "lastUpdated": "2026-10-07T08:00:00Z"
+}

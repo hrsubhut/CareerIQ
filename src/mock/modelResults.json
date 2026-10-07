@@ -1,0 +1,79 @@
+{
+  "jdsModel": {
+    "predictedOutcome": "High",
+    "probability": 0.78,
+    "modelName": "XGBoost-SalaryProgression-JDS-v2.1",
+    "sampleRecords": 15800,
+    "metrics": {
+      "accuracy": 83.4,
+      "precision": 81.2,
+      "recall": 84.7,
+      "f1Score": 82.9
+    },
+    "featureImportance": [
+      {
+        "feature": "AI / Machine Learning Stack",
+        "importance": 34.6,
+        "description": "Demonstrated capability in predictive modeling, scikit-learn, and feature engineering."
+      },
+      {
+        "feature": "Advanced Coding (Python & Software Design)",
+        "importance": 26.2,
+        "description": "Modular programming, algorithmic efficiency, and scalable data pipeline integration."
+      },
+      {
+        "feature": "Applied Mathematics & Statistics",
+        "importance": 18.5,
+        "description": "Hypothesis formulation, probability distributions, and experiment evaluation."
+      },
+      {
+        "feature": "Big Data & Distributed Storage",
+        "importance": 12.4,
+        "description": "SQL window functions, Spark/Databricks query performance, and cloud warehousing."
+      },
+      {
+        "feature": "Dashboarding & Business Storytelling",
+        "importance": 8.3,
+        "description": "Translating quantitative model outputs into executive decisions and clear visualizations."
+      }
+    ],
+    "disclaimer": "Model results represent empirical patterns in the analyzed 15,800 Analytics Jobs records and should not be interpreted as a guaranteed individual salary hike or employment outcome."
+  },
+  "sdsModel": {
+    "title": "Work Style & Success Insights",
+    "sampleRecords": 1600,
+    "dimensions": [
+      {
+        "dimension": "Conscientiousness (Goal-Directed Execution)",
+        "score": 86,
+        "benchmarkAverage": 72,
+        "observedAssociation": "Strong positive association with high-retention project delivery and independent research completion."
+      },
+      {
+        "dimension": "Openness to Experience (Cognitive Curiosity)",
+        "score": 82,
+        "benchmarkAverage": 75,
+        "observedAssociation": "Strong correlation with accelerated adoption of emerging AI frameworks and unstructured exploratory data analysis."
+      },
+      {
+        "dimension": "Extraversion (Collaborative Energy)",
+        "score": 64,
+        "benchmarkAverage": 60,
+        "observedAssociation": "Moderate association with cross-functional leadership and stakeholder advocacy."
+      },
+      {
+        "dimension": "Agreeableness (Team Empathy & Cohesion)",
+        "score": 78,
+        "benchmarkAverage": 70,
+        "observedAssociation": "Positive correlation with peer mentorship and collaborative code reviews."
+      },
+      {
+        "dimension": "Neuroticism / Stress Resilience",
+        "score": 38,
+        "benchmarkAverage": 48,
+        "observedAssociation": "Lower volatility observed to correlate with consistent performance under high-pressure project deadlines."
+      }
+    ],
+    "disclaimer": "Observed association in the analyzed sample. Personality insights are exploratory and are not used as employment eligibility criteria or hiring thresholds."
+  }
+}

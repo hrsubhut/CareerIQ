@@ -1,0 +1,51 @@
+[
+  {
+    "id": "job_01",
+    "company": "DeepMetric Technologies",
+    "role": "Data Scientist — Product Analytics",
+    "stage": "Recommended",
+    "matchScore": 76,
+    "location": "Bengaluru (Hybrid)",
+    "salary": "$115k - $140k",
+    "appliedDate": "2026-09-28"
+  },
+  {
+    "id": "job_02",
+    "company": "FinScale Global",
+    "role": "Senior Data Analyst / BI Lead",
+    "stage": "Saved",
+    "matchScore": 84,
+    "location": "Bengaluru (Remote)",
+    "salary": "$100k - $125k"
+  },
+  {
+    "id": "job_03",
+    "company": "CognitiveHealth AI",
+    "role": "Associate Data Scientist",
+    "stage": "Interview",
+    "matchScore": 79,
+    "location": "Hyderabad / Remote",
+    "salary": "$110k - $130k",
+    "appliedDate": "2026-09-20"
+  },
+  {
+    "id": "job_04",
+    "company": "OmniStream Logistics",
+    "role": "Operations Data Analyst",
+    "stage": "Offer",
+    "matchScore": 91,
+    "location": "Pune (Onsite)",
+    "salary": "$95k - $110k",
+    "appliedDate": "2026-09-12"
+  },
+  {
+    "id": "job_05",
+    "company": "Aura Commerce",
+    "role": "Marketing Analytics Specialist",
+    "stage": "Applied",
+    "matchScore": 82,
+    "location": "Bengaluru",
+    "salary": "$90k - $115k",
+    "appliedDate": "2026-10-02"
+  }
+]
