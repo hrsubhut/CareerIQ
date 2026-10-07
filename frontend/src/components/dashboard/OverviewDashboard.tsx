@@ -70,44 +70,44 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
   const topRecs = recommendations.slice(0, 3);
 
   return (
-    <div className="space-y-8 max-w-5xl mx-auto py-4 animate-fade-in-up">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8 animate-fade-in-up">
 
       {/* ── Hero greeting ─────────────────────────────────── */}
-      <div className="space-y-1">
-        <p className="text-sm font-medium text-indigo-600">{greeting} 👋</p>
-        <h1 className="text-3xl font-bold text-gray-900 tracking-tight">
+      <div className="space-y-1.5 pb-2 border-b border-gray-200">
+        <p className="text-sm font-bold text-indigo-600">{greeting} 👋</p>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
           {user.name}
         </h1>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm sm:text-base text-gray-600">
           {user.currentRole} · {user.yearsOfExperience} yr{user.yearsOfExperience !== 1 ? 's' : ''} exp
           {user.location ? ` · ${user.location}` : ''}
         </p>
       </div>
 
       {/* ── Career readiness banner ────────────────────────── */}
-      <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
+      <div className="rounded-2xl border border-gray-200/90 bg-white p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 mb-6">
           <div>
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-0.5">Career Readiness</p>
-            <div className="flex items-end gap-2">
-              <span className="text-4xl font-bold text-gray-900 font-numeric">{dynamicReadiness}%</span>
-              <span className="text-sm text-gray-500 pb-1">for {user.targetRole}</span>
+            <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Career Readiness</p>
+            <div className="flex items-end gap-3">
+              <span className="text-4xl sm:text-5xl font-black text-gray-900 font-numeric">{dynamicReadiness}%</span>
+              <span className="text-sm sm:text-base text-gray-500 pb-1 font-medium">for {user.targetRole}</span>
             </div>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4 sm:gap-6">
             <div className="text-right">
-              <p className="text-xs text-gray-500">Skill match</p>
-              <p className="text-lg font-bold text-gray-900 font-numeric">{user.profileStrength}%</p>
+              <p className="text-xs font-semibold text-gray-500 uppercase">Skill match</p>
+              <p className="text-xl sm:text-2xl font-black text-gray-900 font-numeric">{user.profileStrength}%</p>
             </div>
-            <div className="w-px h-8 bg-gray-200" />
+            <div className="w-px h-10 bg-gray-200" />
             <div className="text-right">
-              <p className="text-xs text-gray-500">Skill gaps</p>
-              <p className="text-lg font-bold text-indigo-600 font-numeric">{user.criticalSkillGapsCount}</p>
+              <p className="text-xs font-semibold text-gray-500 uppercase">Skill gaps</p>
+              <p className="text-xl sm:text-2xl font-black text-indigo-600 font-numeric">{user.criticalSkillGapsCount}</p>
             </div>
-            <div className="w-px h-8 bg-gray-200" />
+            <div className="w-px h-10 bg-gray-200" />
             <div className="text-right">
-              <p className="text-xs text-gray-500">Opportunity</p>
-              <p className="text-lg font-bold text-emerald-600">High</p>
+              <p className="text-xs font-semibold text-gray-500 uppercase">Opportunity</p>
+              <p className="text-xl sm:text-2xl font-black text-emerald-600">High</p>
             </div>
           </div>
         </div>

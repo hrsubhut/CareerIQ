@@ -249,12 +249,12 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ currentTab, onSelectTab, u
             <div className="w-px h-6 bg-gray-200 hidden sm:block"></div>
 
             {user && (
-              <div className="hidden sm:flex items-center gap-2.5 cursor-pointer hover:opacity-80 transition-opacity">
+              <div className="hidden sm:flex items-center gap-3 cursor-pointer hover:opacity-85 transition-opacity">
                 <div className="text-right">
                   <p className="text-sm font-bold text-gray-900 leading-tight">{user.name}</p>
-                  <p className="text-[11px] text-gray-500">{user.currentRole}</p>
+                  <p className="text-xs text-gray-500 font-medium">{user.currentRole}</p>
                 </div>
-                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-indigo-500 to-indigo-700 text-white flex items-center justify-center text-sm font-bold shadow-sm">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-indigo-700 text-white flex items-center justify-center text-sm font-bold shadow-sm">
                   {getInitials(user.name)}
                 </div>
               </div>
@@ -263,7 +263,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ currentTab, onSelectTab, u
         </header>
 
         {/* Scrollable Main */}
-        <main className="flex-1 overflow-y-auto">
+        <main className="flex-1 overflow-y-auto w-full bg-slate-50/50 scroll-smooth">
           {children}
         </main>
       </div>

@@ -16,33 +16,33 @@ export const CareerDetailPage: React.FC<CareerDetailPageProps> = ({
   onNavigateSkillGap,
 }) => {
   return (
-    <div className="space-y-8 max-w-4xl mx-auto py-2">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8 animate-fade-in-up">
       {/* Back button */}
       <div>
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-600 hover:text-gray-900"
+          className="inline-flex items-center gap-2 text-sm font-bold text-gray-600 hover:text-indigo-600 transition-colors"
         >
-          <ArrowLeft className="w-3.5 h-3.5" /> Back to Dashboard
+          <ArrowLeft className="w-4 h-4" /> Back to Dashboard
         </button>
       </div>
 
       {/* Main Header Card */}
-      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-gray-100">
+      <div className="bg-white border border-gray-200/90 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 pb-6 border-b border-gray-100">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-indigo-600 block mb-1">
               Role Intelligence Breakdown
             </span>
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">{career.role}</h1>
-            <p className="text-xs text-gray-500 mt-1">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">{career.role}</h1>
+            <p className="text-sm text-gray-500 mt-1.5 font-medium">
               Market Benchmark: {career.salary_range} • {career.required_experience} Required
             </p>
           </div>
 
           <div className="text-left sm:text-right">
-            <span className="text-3xl font-bold text-emerald-600 font-mono">{career.match_score}%</span>
-            <span className="block text-xs text-gray-500">Compatibility Match</span>
+            <span className="text-4xl sm:text-5xl font-black text-emerald-600 font-mono">{career.match_score}%</span>
+            <span className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mt-1">Compatibility Match</span>
           </div>
         </div>
 

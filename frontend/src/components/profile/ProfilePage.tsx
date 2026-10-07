@@ -44,17 +44,17 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
   };
 
   return (
-    <div className="space-y-8 max-w-3xl mx-auto py-2">
-      <div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
+    <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8 animate-fade-in-up">
+      <div className="pb-2 border-b border-gray-200">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
           User Profile & Credentials
         </h1>
-        <p className="text-sm text-gray-500 mt-1">
-          Manage your current background, verified skills, and target career goal.
+        <p className="text-sm sm:text-base text-gray-600 mt-1.5">
+          Manage your verified credentials, technical proficiencies, and target career trajectory.
         </p>
       </div>
 
-      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm space-y-6">
+      <div className="bg-white border border-gray-200/90 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow space-y-6">
         {/* Top bar with quick resume import */}
         <div className="flex items-center justify-between pb-5 border-b border-gray-100">
           <div className="flex items-center gap-3">

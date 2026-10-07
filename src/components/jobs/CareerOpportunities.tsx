@@ -171,27 +171,27 @@ export const CareerOpportunities: React.FC<CareerOpportunitiesProps> = ({
   );
 
   return (
-    <div className="max-w-5xl mx-auto py-6 animate-fade-in-up space-y-8">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 animate-fade-in-up space-y-8">
 
       {/* Page Header */}
-      <div>
-        <p className="text-xs font-semibold text-indigo-600 uppercase tracking-wider mb-1">Career Opportunities</p>
-        <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Your Matched Opportunities</h1>
-        <p className="text-sm text-gray-500 mt-1.5">
-          Ranked by CareerIQ Match — based on your skills, assessment performance, and target role.
+      <div className="pb-2 border-b border-gray-200">
+        <p className="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-1">Career Opportunities</p>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">Your Matched Opportunities</h1>
+        <p className="text-sm sm:text-base text-gray-600 mt-1.5">
+          Ranked by CareerIQ Match — derived from empirical hiring signals, required skill profiles, and target roles.
         </p>
       </div>
 
       {/* Assessment nudge */}
       {!assessmentResult && (
-        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
           <div>
-            <p className="text-sm font-bold text-amber-900">Improve your match accuracy</p>
-            <p className="text-xs text-amber-700 mt-0.5">Take the 30-question MCQ assessment to get personalised skill-based match scores.</p>
+            <p className="text-base font-bold text-amber-900">Improve your match accuracy</p>
+            <p className="text-sm text-amber-700 mt-1">Take the 30-question MCQ assessment to get personalized skill-based match scores.</p>
           </div>
           <button
             onClick={onStartAssessment}
-            className="shrink-0 px-5 py-2.5 bg-amber-600 hover:bg-amber-700 text-white text-sm font-bold rounded-xl transition-colors"
+            className="shrink-0 px-6 py-2.5 bg-amber-600 hover:bg-amber-700 text-white text-sm font-bold rounded-xl shadow transition-colors"
           >
             Start Assessment
           </button>
@@ -199,28 +199,28 @@ export const CareerOpportunities: React.FC<CareerOpportunitiesProps> = ({
       )}
 
       {/* Flow bar */}
-      <div className="flex items-center gap-2 overflow-x-auto hide-scrollbar pb-1">
+      <div className="flex items-center gap-3 overflow-x-auto hide-scrollbar pb-1">
         {['Assess', 'Understand', 'Match', 'Prepare', 'Apply'].map((step, i, arr) => (
           <React.Fragment key={step}>
-            <span className={`shrink-0 px-3 py-1.5 rounded-full text-xs font-bold ${
-              step === 'Match' ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-600'
+            <span className={`shrink-0 px-4 py-1.5 rounded-full text-xs font-bold ${
+              step === 'Match' ? 'bg-indigo-600 text-white shadow-xs' : 'bg-gray-100 text-gray-600'
             }`}>{step}</span>
-            {i < arr.length - 1 && <div className="w-5 h-px bg-gray-300 shrink-0" />}
+            {i < arr.length - 1 && <div className="w-6 h-px bg-gray-300 shrink-0" />}
           </React.Fragment>
         ))}
       </div>
 
       {/* Stats row */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
         {[
           { label: 'Opportunities Found', value: matches.length, color: 'text-indigo-600' },
           { label: 'Top Match', value: `${matches[0]?.careerIQMatch ?? 0}%`, color: 'text-emerald-600' },
           { label: 'Skills Matched', value: matches[0]?.matchedSkills.length ?? 0, color: 'text-indigo-600' },
           { label: 'Skill Gaps', value: matches[0]?.missingSkills.length ?? 0, color: 'text-amber-600' },
         ].map(stat => (
-          <div key={stat.label} className="bg-white rounded-2xl border border-gray-200 p-4 shadow-sm text-center">
-            <p className={`text-2xl font-bold ${stat.color}`}>{stat.value}</p>
-            <p className="text-xs text-gray-500 mt-0.5">{stat.label}</p>
+          <div key={stat.label} className="bg-white border border-gray-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+            <span className="text-xs font-bold text-gray-500 uppercase tracking-wider block">{stat.label}</span>
+            <span className={`text-2xl sm:text-3xl font-black mt-2 block tracking-tight ${stat.color}`}>{stat.value}</span>
           </div>
         ))}
       </div>

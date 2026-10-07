@@ -83,17 +83,17 @@ export const MyCareerPathway: React.FC<MyCareerPathwayProps> = ({
   onSelectRole,
 }) => {
   return (
-    <div className="space-y-8 max-w-3xl mx-auto py-4 animate-fade-in-up">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8 animate-fade-in-up">
       {/* Header */}
-      <div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">Career Pathways</h1>
-        <p className="text-sm text-gray-500 mt-1">
-          Realistic step-by-step progression from <strong className="text-gray-700">{currentRole}</strong> to <strong className="text-indigo-600">{targetRole}</strong>.
+      <div className="pb-2 border-b border-gray-200">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">Career Pathways</h1>
+        <p className="text-sm sm:text-base text-gray-600 mt-1.5">
+          Realistic step-by-step progression from <strong className="text-gray-900 font-bold">{currentRole}</strong> to <strong className="text-indigo-600 font-bold">{targetRole}</strong>.
         </p>
       </div>
 
       {/* Pathway steps */}
-      <div className="space-y-3">
+      <div className="space-y-4">
         {STAGES.map((stage, idx) => {
           const colors = STAGE_COLORS[stage.stageType];
           return (

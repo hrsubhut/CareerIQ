@@ -74,18 +74,18 @@ export const LearningRoadmapPage: React.FC<{ targetRole: string }> = ({ targetRo
   const [expanded, setExpanded] = useState<number>(1);
 
   return (
-    <div className="space-y-8 max-w-4xl mx-auto py-4 animate-fade-in-up">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8 animate-fade-in-up">
       {/* Header */}
-      <div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">Learning Roadmap</h1>
-        <p className="text-sm text-gray-500 mt-1">
-          Structured curriculum to close your skill gaps for <strong className="text-gray-700">{targetRole}</strong>.
+      <div className="pb-2 border-b border-gray-200">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">Learning Roadmap</h1>
+        <p className="text-sm sm:text-base text-gray-600 mt-1.5">
+          Structured curriculum to close your skill gaps for <strong className="text-gray-900 font-bold">{targetRole}</strong>.
         </p>
       </div>
 
       {/* Timeline overview */}
-      <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">Estimated Timeline</p>
+      <div className="rounded-2xl border border-gray-200/90 bg-white p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow">
+        <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">Estimated Timeline</p>
         <div className="flex flex-col sm:flex-row gap-3">
           {ROADMAP_STEPS.map(s => (
             <button

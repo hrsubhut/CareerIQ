@@ -79,38 +79,38 @@ export const SkillGapPage: React.FC<SkillGapPageProps> = ({
   const readinessPct = Math.round((hasSkills.length / allSkills.length) * 100);
 
   return (
-    <div className="space-y-8 max-w-4xl mx-auto py-4 animate-fade-in-up">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8 animate-fade-in-up">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-gray-200">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">Skill Gap Analysis</h1>
-          <p className="text-sm text-gray-500 mt-1">
-            Exact breakdown of what you have vs. what <strong className="text-gray-700">{targetRole}</strong> demands.
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">Skill Gap Analysis</h1>
+          <p className="text-sm sm:text-base text-gray-600 mt-1.5">
+            Exact breakdown of what you have vs. what <strong className="text-gray-900 font-bold">{targetRole}</strong> demands in market requisitions.
           </p>
         </div>
         <div className="relative">
           <select
             value={targetRole}
             onChange={e => onTargetRoleChange(e.target.value)}
-            className="appearance-none pl-3 pr-8 py-2 bg-white border border-gray-300 rounded-lg text-xs font-semibold text-gray-800 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 shadow-sm cursor-pointer"
+            className="appearance-none pl-4 pr-10 py-2.5 bg-white border border-gray-300 rounded-xl text-sm font-bold text-gray-800 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 shadow-sm cursor-pointer"
           >
             <option value="Data Scientist">Data Scientist</option>
             <option value="Senior Data Analyst">Senior Data Analyst</option>
             <option value="Business Intelligence Analyst">BI Analyst</option>
             <option value="Machine Learning Engineer">ML Engineer</option>
           </select>
-          <ChevronDown className="absolute right-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400 pointer-events-none" />
+          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
         </div>
       </div>
 
       {/* Summary score */}
-      <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-        <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center mb-5">
+      <div className="rounded-2xl border border-gray-200/90 bg-white p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow">
+        <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center mb-6">
           <div className="flex-1">
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Skill Coverage</p>
-            <div className="flex items-end gap-2">
-              <span className="text-4xl font-bold text-gray-900 font-numeric">{readinessPct}%</span>
-              <span className="text-sm text-gray-500 pb-1">of {targetRole} requirements met</span>
+            <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Skill Coverage</p>
+            <div className="flex items-end gap-3">
+              <span className="text-4xl sm:text-5xl font-black text-gray-900 font-numeric">{readinessPct}%</span>
+              <span className="text-sm sm:text-base text-gray-500 pb-1 font-medium">of {targetRole} requirements met</span>
             </div>
           </div>
           <div className="flex gap-6">
