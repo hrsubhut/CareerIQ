@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import {
   Upload,
   CheckCircle2,
-  ArrowRight,
   Loader2,
   X,
   Plus,
@@ -14,7 +13,6 @@ import {
   ChevronLeft,
   Zap,
 } from 'lucide-react';
-import { api } from '../../api';
 import { resumeApi } from '../../services/resumeApi';
 import { careerApi } from '../../services/careerApi';
 import { UserProfile, ProficiencyLevel } from '../../types';
@@ -189,51 +187,53 @@ export const UserOnboardingFlow: React.FC<UserOnboardingFlowProps> = ({ onProfil
   const stepIndex = STEPS.indexOf(step);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4 sm:p-8">
+    <div className="min-h-screen bg-slate-50/70 flex flex-col items-center justify-center p-4 sm:p-8">
       {/* Brand header */}
-      <div className="w-full max-w-xl mb-8 animate-fade-in-up">
-        <div className="flex items-center justify-center gap-3 mb-2">
-          <div className="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-200">
-            <Sparkles className="w-4.5 h-4.5 text-white" style={{ width: 18, height: 18 }} />
+      <div className="w-full max-w-2xl mb-8 text-center animate-fade-in-up">
+        <div className="flex items-center justify-center gap-3 mb-2.5">
+          <div className="w-11 h-11 rounded-2xl bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-200">
+            <Sparkles className="w-6 h-6 text-white" />
           </div>
-          <span className="text-xl font-bold text-gray-900 tracking-tight">CareerPath AI</span>
+          <span className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
+            Career<span className="text-indigo-600">IQ</span>
+          </span>
         </div>
-        <p className="text-center text-sm text-gray-500">
-          Your personalized career intelligence — built from your real profile
+        <p className="text-sm sm:text-base text-gray-600 font-medium">
+          Enterprise career intelligence and live skill gap calibration powered by real ML inference.
         </p>
       </div>
 
       {/* Progress steps */}
-      <div className="w-full max-w-xl mb-6 animate-fade-in-up animate-delay-100">
-        <div className="flex items-center justify-between relative">
-          <div className="absolute left-0 right-0 top-4 h-px bg-gray-200 z-0" />
+      <div className="w-full max-w-2xl mb-8 animate-fade-in-up">
+        <div className="flex items-center justify-between relative px-6">
+          <div className="absolute left-10 right-10 top-5 h-0.5 bg-gray-200 z-0" />
           <div
-            className="absolute left-0 top-4 h-px bg-indigo-600 z-0 transition-all duration-500"
-            style={{ width: `${(stepIndex / (STEPS.length - 1)) * 100}%` }}
+            className="absolute left-10 top-5 h-0.5 bg-indigo-600 z-0 transition-all duration-500"
+            style={{ width: `${(stepIndex / (STEPS.length - 1)) * 80}%` }}
           />
           {STEP_INFO.map((s, i) => {
             const isDone = i < stepIndex;
             const isActive = i === stepIndex;
             return (
-              <div key={s.id} className="relative z-10 flex flex-col items-center gap-1.5">
+              <div key={s.id} className="relative z-10 flex flex-col items-center gap-2">
                 <div
-                  className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+                  className={`w-10 h-10 rounded-2xl border-2 flex items-center justify-center transition-all duration-300 font-bold ${
                     isDone
-                      ? 'bg-indigo-600 border-indigo-600 text-white'
+                      ? 'bg-indigo-600 border-indigo-600 text-white shadow-sm'
                       : isActive
-                      ? 'bg-white border-indigo-600 text-indigo-600 shadow-md shadow-indigo-100'
+                      ? 'bg-white border-indigo-600 text-indigo-600 shadow-md ring-4 ring-indigo-50'
                       : 'bg-white border-gray-300 text-gray-400'
                   }`}
                 >
                   {isDone ? (
-                    <CheckCircle2 className="w-4 h-4" />
+                    <CheckCircle2 className="w-5 h-5" />
                   ) : (
-                    <s.icon className="w-3.5 h-3.5" />
+                    <s.icon className="w-4 h-4" />
                   )}
                 </div>
                 <span
-                  className={`text-[11px] font-semibold ${
-                    isActive ? 'text-indigo-600' : isDone ? 'text-gray-600' : 'text-gray-400'
+                  className={`text-xs font-bold uppercase tracking-wider ${
+                    isActive ? 'text-indigo-600' : isDone ? 'text-gray-700' : 'text-gray-400'
                   }`}
                 >
                   {s.label}
@@ -245,15 +245,15 @@ export const UserOnboardingFlow: React.FC<UserOnboardingFlowProps> = ({ onProfil
       </div>
 
       {/* Main card */}
-      <div className="w-full max-w-xl bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden animate-fade-in-up animate-delay-200">
+      <div className="w-full max-w-2xl bg-white border border-gray-200/90 rounded-3xl shadow-xl overflow-hidden animate-fade-in-up">
 
         {/* ── STEP 1: UPLOAD ─────────────────────────────────────── */}
         {step === 'upload' && (
-          <div className="p-8 space-y-6">
+          <div className="p-8 sm:p-10 space-y-6">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Upload your resume</h1>
-              <p className="text-sm text-gray-500 mt-1">
-                We'll extract your skills, experience, and qualifications automatically.
+              <h1 className="text-2xl sm:text-3xl font-black text-gray-900">Upload your resume</h1>
+              <p className="text-sm sm:text-base text-gray-600 mt-1.5">
+                We'll extract your skills, tenure, and verified credentials automatically.
               </p>
             </div>
 
@@ -263,12 +263,12 @@ export const UserOnboardingFlow: React.FC<UserOnboardingFlowProps> = ({ onProfil
               onDragLeave={() => setIsDragging(false)}
               onDrop={handleDrop}
               onClick={() => fileInputRef.current?.click()}
-              className={`relative rounded-2xl border-2 border-dashed p-10 text-center cursor-pointer transition-all duration-200 ${
+              className={`relative rounded-3xl border-2 border-dashed p-10 sm:p-12 text-center cursor-pointer transition-all duration-200 ${
                 isDragging
-                  ? 'border-indigo-500 bg-indigo-50'
+                  ? 'border-indigo-600 bg-indigo-50/80 scale-[1.01]'
                   : isExtracting
                   ? 'border-indigo-400 bg-indigo-50/40'
-                  : 'border-gray-300 hover:border-indigo-400 hover:bg-gray-50/50'
+                  : 'border-gray-300 hover:border-indigo-500 hover:bg-slate-50/70'
               }`}
             >
               <input
@@ -280,25 +280,25 @@ export const UserOnboardingFlow: React.FC<UserOnboardingFlowProps> = ({ onProfil
               />
 
               {isExtracting ? (
-                <div className="flex flex-col items-center gap-3 py-2">
-                  <div className="w-12 h-12 rounded-full bg-indigo-50 border border-indigo-200 flex items-center justify-center">
-                    <Loader2 className="w-6 h-6 text-indigo-600 animate-spin" />
+                <div className="flex flex-col items-center gap-4 py-3">
+                  <div className="w-14 h-14 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center">
+                    <Loader2 className="w-7 h-7 text-indigo-600 animate-spin" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">Extracting your profile...</p>
-                    <p className="text-xs text-gray-500 mt-0.5">Normalizing skills and work history</p>
+                    <p className="text-base font-bold text-gray-900">Parsing your resume...</p>
+                    <p className="text-sm text-gray-500 mt-1">Extracting technical skills, roles, and experience</p>
                   </div>
                 </div>
               ) : (
-                <div className="flex flex-col items-center gap-3 py-2">
-                  <div className="w-12 h-12 rounded-full bg-indigo-50 border border-indigo-200 flex items-center justify-center">
-                    <Upload className="w-5 h-5 text-indigo-600" />
+                <div className="flex flex-col items-center gap-4 py-3">
+                  <div className="w-14 h-14 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600">
+                    <Upload className="w-7 h-7" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">
-                      Drop your resume here, or <span className="text-indigo-600">click to browse</span>
+                    <p className="text-base sm:text-lg font-bold text-gray-900">
+                      Drag & drop your resume, or <span className="text-indigo-600 hover:underline">browse files</span>
                     </p>
-                    <p className="text-xs text-gray-500 mt-0.5">PDF or DOCX · Max 10MB</p>
+                    <p className="text-xs sm:text-sm text-gray-500 mt-1 font-medium">Supports PDF, DOCX (up to 10MB)</p>
                   </div>
                 </div>
               )}
@@ -307,23 +307,23 @@ export const UserOnboardingFlow: React.FC<UserOnboardingFlowProps> = ({ onProfil
             {/* Features list */}
             <div className="grid grid-cols-3 gap-3">
               {[
-                { label: 'Skills extracted', color: 'bg-emerald-100 text-emerald-700' },
-                { label: 'Experience parsed', color: 'bg-indigo-100 text-indigo-700' },
-                { label: 'Profile auto-built', color: 'bg-purple-100 text-purple-700' },
+                { label: 'Skills Extracted', color: 'bg-emerald-50 text-emerald-700 border border-emerald-200' },
+                { label: 'Experience Normalized', color: 'bg-indigo-50 text-indigo-700 border border-indigo-200' },
+                { label: 'Instant Calibration', color: 'bg-purple-50 text-purple-700 border border-purple-200' },
               ].map(f => (
-                <div key={f.label} className={`rounded-lg px-3 py-2 text-center text-[11px] font-semibold ${f.color}`}>
+                <div key={f.label} className={`rounded-xl p-3 text-center text-xs font-bold ${f.color}`}>
                   {f.label}
                 </div>
               ))}
             </div>
 
-            <div className="text-center pt-1">
+            <div className="text-center pt-2">
               <button
                 type="button"
                 onClick={() => setStep('review')}
-                className="text-xs text-gray-500 hover:text-indigo-600 font-medium transition-colors"
+                className="text-sm text-gray-500 hover:text-indigo-600 font-bold transition-colors"
               >
-                Skip — I'll enter my profile manually →
+                Skip upload — enter profile details manually →
               </button>
             </div>
           </div>
@@ -331,35 +331,35 @@ export const UserOnboardingFlow: React.FC<UserOnboardingFlowProps> = ({ onProfil
 
         {/* ── STEP 2: REVIEW ─────────────────────────────────────── */}
         {step === 'review' && (
-          <div className="p-8 space-y-6">
+          <div className="p-8 sm:p-10 space-y-6">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900">Review your profile</h2>
-                <p className="text-sm text-gray-500 mt-1">Verify the extracted details or fill them in manually.</p>
+                <h2 className="text-2xl sm:text-3xl font-black text-gray-900">Review your profile</h2>
+                <p className="text-sm text-gray-600 mt-1">Verify your background or adjust any field.</p>
               </div>
               {uploadedFile && (
-                <div className="shrink-0 flex items-center gap-1.5 px-2.5 py-1.5 bg-emerald-50 border border-emerald-200 rounded-lg text-[11px] font-semibold text-emerald-700">
-                  <CheckCircle2 className="w-3 h-3" />
-                  {uploadedFile.name.slice(0, 24)}{uploadedFile.name.length > 24 ? '…' : ''}
+                <div className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-200 rounded-xl text-xs font-bold text-emerald-700 shadow-2xs">
+                  <CheckCircle2 className="w-3.5 h-3.5" />
+                  {uploadedFile.name.slice(0, 20)}{uploadedFile.name.length > 20 ? '…' : ''}
                 </div>
               )}
             </div>
 
             {/* Form fields */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <Field
                 label="Full Name"
                 required
                 error={errors.name}
                 value={name}
                 onChange={setName}
-                placeholder="e.g. Dev Saini"
+                placeholder="e.g. Alex Chen"
               />
               <Field
                 label="Email"
                 value={email}
                 onChange={setEmail}
-                placeholder="you@example.com"
+                placeholder="alex@example.com"
               />
               <Field
                 label="Current / Most Recent Role"
@@ -378,32 +378,32 @@ export const UserOnboardingFlow: React.FC<UserOnboardingFlowProps> = ({ onProfil
                 label="Location"
                 value={location}
                 onChange={setLocation}
-                placeholder="e.g. Bengaluru, India"
+                placeholder="e.g. San Francisco, CA"
               />
               <Field
                 label="Education"
                 value={education}
                 onChange={setEducation}
-                placeholder="e.g. B.Tech in Computer Science"
+                placeholder="e.g. B.S. in Computer Science"
               />
             </div>
 
             {/* Skills */}
-            <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-2">Your Skills</label>
-              <div className="flex flex-wrap gap-2 mb-3 min-h-[36px]">
+            <div className="space-y-3">
+              <label className="block text-xs sm:text-sm font-bold text-gray-700">Verified Technical Skills</label>
+              <div className="flex flex-wrap gap-2 min-h-[40px]">
                 {skills.map(s => (
                   <span
                     key={s.name}
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-gray-100 border border-gray-200 rounded-md text-xs font-medium text-gray-800 group"
+                    className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-xl text-xs sm:text-sm font-semibold text-slate-800 group"
                   >
                     {s.name}
                     <button
                       type="button"
                       onClick={() => setSkills(prev => prev.filter(x => x.name !== s.name))}
-                      className="text-gray-400 hover:text-red-500 transition-colors"
+                      className="text-gray-400 hover:text-rose-600 transition-colors"
                     >
-                      <X className="w-3 h-3" />
+                      <X className="w-3.5 h-3.5" />
                     </button>
                   </span>
                 ))}
@@ -417,34 +417,34 @@ export const UserOnboardingFlow: React.FC<UserOnboardingFlowProps> = ({ onProfil
                   value={newSkillText}
                   onChange={e => setNewSkillText(e.target.value)}
                   onKeyDown={e => e.key === 'Enter' && (e.preventDefault(), handleAddSkill())}
-                  placeholder="Add a skill (e.g. Python, SQL, Tableau)"
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-xs text-gray-900 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/20 transition-all"
+                  placeholder="Add a skill (e.g. Python, SQL, Tableau, Pandas)"
+                  className="flex-1 px-4 py-2.5 border border-gray-300 rounded-xl text-sm text-gray-900 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 font-medium"
                 />
                 <button
                   type="button"
                   onClick={handleAddSkill}
-                  className="px-3 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-semibold transition-colors"
+                  className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-bold transition-all shadow-sm"
                 >
-                  <Plus className="w-3.5 h-3.5" />
+                  <Plus className="w-4 h-4" />
                 </button>
               </div>
             </div>
 
             {/* Footer nav */}
-            <div className="flex items-center justify-between pt-2 border-t border-gray-100">
+            <div className="flex items-center justify-between pt-4 border-t border-gray-100">
               <button
                 type="button"
                 onClick={() => setStep('upload')}
-                className="flex items-center gap-1 text-xs text-gray-500 hover:text-gray-800 font-medium transition-colors"
+                className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-800 font-bold transition-colors"
               >
-                <ChevronLeft className="w-3.5 h-3.5" /> Back
+                <ChevronLeft className="w-4 h-4" /> Back
               </button>
               <button
                 type="button"
                 onClick={() => { if (validateReview()) setStep('target'); }}
-                className="flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-semibold shadow-sm transition-colors"
+                className="flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-bold shadow-md transition-all"
               >
-                Continue <ChevronRight className="w-3.5 h-3.5" />
+                Continue <ChevronRight className="w-4 h-4" />
               </button>
             </div>
           </div>
@@ -452,40 +452,40 @@ export const UserOnboardingFlow: React.FC<UserOnboardingFlowProps> = ({ onProfil
 
         {/* ── STEP 3: TARGET ─────────────────────────────────────── */}
         {step === 'target' && (
-          <div className="p-8 space-y-6">
+          <div className="p-8 sm:p-10 space-y-6">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">Choose your target career</h2>
-              <p className="text-sm text-gray-500 mt-1">
-                We'll benchmark your profile against {'>'}17,400 job postings for this role.
+              <h2 className="text-2xl sm:text-3xl font-black text-gray-900">Choose your target career</h2>
+              <p className="text-sm sm:text-base text-gray-600 mt-1">
+                We'll benchmark your profile against 15,800+ real job requisitions for this role.
               </p>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-3.5">
               {TARGET_ROLES.map(opt => (
                 <div
                   key={opt.role}
                   onClick={() => setTargetRole(opt.role)}
-                  className={`p-4 rounded-xl border cursor-pointer transition-all duration-200 ${
+                  className={`p-5 rounded-2xl border cursor-pointer transition-all duration-200 ${
                     targetRole === opt.role
-                      ? 'border-indigo-500 bg-indigo-50/60 ring-1 ring-indigo-400 shadow-sm shadow-indigo-100'
-                      : 'border-gray-200 hover:border-gray-300 bg-white hover:shadow-sm'
+                      ? 'border-indigo-600 bg-indigo-50/70 ring-2 ring-indigo-400 shadow-sm'
+                      : 'border-gray-200 hover:border-gray-300 bg-white hover:shadow-xs'
                   }`}
                 >
-                  <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-0.5">
-                        <h3 className="text-sm font-bold text-gray-900">{opt.role}</h3>
-                        <span className="text-[10px] font-semibold px-1.5 py-0.5 bg-emerald-100 text-emerald-700 rounded-md">
+                      <div className="flex items-center gap-2.5 mb-1">
+                        <h3 className="text-base sm:text-lg font-bold text-gray-900">{opt.role}</h3>
+                        <span className="text-xs font-bold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded-lg">
                           {opt.badge}
                         </span>
                       </div>
-                      <p className="text-xs text-gray-500">{opt.desc}</p>
-                      <p className="text-xs font-semibold text-gray-700 mt-1">{opt.salary}</p>
+                      <p className="text-xs sm:text-sm text-gray-600">{opt.desc}</p>
+                      <p className="text-xs sm:text-sm font-bold text-indigo-700 mt-1.5 font-numeric">{opt.salary}</p>
                     </div>
-                    <div className={`shrink-0 w-5 h-5 rounded-full border-2 mt-0.5 flex items-center justify-center transition-all ${
+                    <div className={`shrink-0 w-6 h-6 rounded-full border-2 mt-1 flex items-center justify-center transition-all ${
                       targetRole === opt.role ? 'border-indigo-600 bg-indigo-600' : 'border-gray-300'
                     }`}>
-                      {targetRole === opt.role && <div className="w-2 h-2 rounded-full bg-white" />}
+                      {targetRole === opt.role && <div className="w-2.5 h-2.5 rounded-full bg-white" />}
                     </div>
                   </div>
                 </div>
@@ -493,29 +493,29 @@ export const UserOnboardingFlow: React.FC<UserOnboardingFlowProps> = ({ onProfil
             </div>
 
             {/* Footer nav */}
-            <div className="flex items-center justify-between pt-2 border-t border-gray-100">
+            <div className="flex items-center justify-between pt-4 border-t border-gray-100">
               <button
                 type="button"
                 onClick={() => setStep('review')}
-                className="flex items-center gap-1 text-xs text-gray-500 hover:text-gray-800 font-medium transition-colors"
+                className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-800 font-bold transition-colors"
               >
-                <ChevronLeft className="w-3.5 h-3.5" /> Back
+                <ChevronLeft className="w-4 h-4" /> Back
               </button>
               <button
                 type="button"
                 onClick={handleAnalyzeCareer}
                 disabled={isAnalyzing}
-                className="flex items-center gap-2 px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold shadow-sm transition-colors disabled:opacity-70"
+                className="flex items-center gap-2 px-7 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm sm:text-base font-bold shadow-md hover:shadow-lg transition-all disabled:opacity-70"
               >
                 {isAnalyzing ? (
                   <>
-                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                    Analyzing...
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Running ML Benchmarks...
                   </>
                 ) : (
                   <>
-                    <Zap className="w-3.5 h-3.5" />
-                    Analyze My Career
+                    <Zap className="w-4 h-4" />
+                    Analyze My Career Intelligence
                   </>
                 )}
               </button>
@@ -525,8 +525,8 @@ export const UserOnboardingFlow: React.FC<UserOnboardingFlowProps> = ({ onProfil
       </div>
 
       {/* Footer note */}
-      <p className="mt-6 text-[11px] text-gray-400 text-center animate-fade-in animate-delay-400">
-        Your data stays in your browser. Nothing is stored on any server.
+      <p className="mt-6 text-xs text-gray-400 text-center animate-fade-in">
+        Your data is saved locally in your browser. All inference runs with private endpoints.
       </p>
     </div>
   );
@@ -543,19 +543,19 @@ const Field: React.FC<{
   error?: string;
 }> = ({ label, value, onChange, placeholder, required, error }) => (
   <div>
-    <label className="block text-xs font-semibold text-gray-700 mb-1">
-      {label} {required && <span className="text-red-500">*</span>}
+    <label className="block text-xs sm:text-sm font-bold text-gray-700 mb-1.5">
+      {label} {required && <span className="text-rose-500">*</span>}
     </label>
     <input
       type="text"
       value={value}
       onChange={e => onChange(e.target.value)}
       placeholder={placeholder}
-      className={`w-full px-3 py-2.5 border rounded-lg text-sm text-gray-900 placeholder:text-gray-400 transition-all focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 ${
-        error ? 'border-red-400 bg-red-50/30' : 'border-gray-300 bg-white'
+      className={`w-full px-4 py-3 border rounded-xl text-sm sm:text-base text-gray-900 placeholder:text-gray-400 transition-all focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 font-medium ${
+        error ? 'border-rose-400 bg-rose-50/30' : 'border-gray-300 bg-white'
       }`}
     />
-    {error && <p className="text-[11px] text-red-500 mt-1">{error}</p>}
+    {error && <p className="text-xs text-rose-500 font-semibold mt-1">{error}</p>}
   </div>
 );
 
@@ -565,7 +565,7 @@ const NumberField: React.FC<{
   onChange: (v: number) => void;
 }> = ({ label, value, onChange }) => (
   <div>
-    <label className="block text-xs font-semibold text-gray-700 mb-1">{label}</label>
+    <label className="block text-xs sm:text-sm font-bold text-gray-700 mb-1.5">{label}</label>
     <input
       type="number"
       min="0"
@@ -573,7 +573,7 @@ const NumberField: React.FC<{
       step="0.5"
       value={value}
       onChange={e => onChange(parseFloat(e.target.value) || 0)}
-      className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-900 bg-white transition-all focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+      className="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm sm:text-base text-gray-900 bg-white transition-all focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 font-medium"
     />
   </div>
 );

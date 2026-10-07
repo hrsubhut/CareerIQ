@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import {
   ArrowRight,
   BookOpen,
-  Award,
   Video,
   Briefcase,
   TrendingUp,
@@ -70,67 +69,67 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
   const topRecs = recommendations.slice(0, 3);
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8 animate-fade-in-up">
+    <div className="w-full space-y-8 animate-fade-in-up">
 
       {/* ── Hero greeting ─────────────────────────────────── */}
-      <div className="space-y-1.5 pb-2 border-b border-gray-200">
-        <p className="text-sm font-bold text-indigo-600">{greeting} 👋</p>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+      <div className="space-y-2 pb-4 border-b border-gray-200">
+        <p className="text-sm sm:text-base font-bold text-indigo-600">{greeting} 👋</p>
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
           {user.name}
         </h1>
-        <p className="text-sm sm:text-base text-gray-600">
+        <p className="text-sm sm:text-base text-gray-600 font-medium">
           {user.currentRole} · {user.yearsOfExperience} yr{user.yearsOfExperience !== 1 ? 's' : ''} exp
           {user.location ? ` · ${user.location}` : ''}
         </p>
       </div>
 
       {/* ── Career readiness banner ────────────────────────── */}
-      <div className="rounded-2xl border border-gray-200/90 bg-white p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 mb-6">
+      <div className="rounded-3xl border border-gray-200/90 bg-white p-6 sm:p-9 shadow-sm hover:shadow-md transition-shadow">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-7">
           <div>
-            <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Career Readiness</p>
-            <div className="flex items-end gap-3">
-              <span className="text-4xl sm:text-5xl font-black text-gray-900 font-numeric">{dynamicReadiness}%</span>
-              <span className="text-sm sm:text-base text-gray-500 pb-1 font-medium">for {user.targetRole}</span>
+            <p className="text-xs sm:text-sm font-bold text-gray-500 uppercase tracking-wider mb-1.5">Career Readiness Index</p>
+            <div className="flex items-baseline gap-3.5">
+              <span className="text-5xl sm:text-6xl font-black text-gray-900 font-numeric tracking-tight">{dynamicReadiness}%</span>
+              <span className="text-base sm:text-lg text-gray-500 font-medium">for {user.targetRole}</span>
             </div>
           </div>
-          <div className="flex items-center gap-4 sm:gap-6">
-            <div className="text-right">
-              <p className="text-xs font-semibold text-gray-500 uppercase">Skill match</p>
-              <p className="text-xl sm:text-2xl font-black text-gray-900 font-numeric">{user.profileStrength}%</p>
+          <div className="flex items-center gap-6 sm:gap-10">
+            <div className="text-left sm:text-right">
+              <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">Skill match</p>
+              <p className="text-2xl sm:text-3xl font-black text-gray-900 font-numeric mt-0.5">{user.profileStrength}%</p>
             </div>
-            <div className="w-px h-10 bg-gray-200" />
-            <div className="text-right">
-              <p className="text-xs font-semibold text-gray-500 uppercase">Skill gaps</p>
-              <p className="text-xl sm:text-2xl font-black text-indigo-600 font-numeric">{user.criticalSkillGapsCount}</p>
+            <div className="w-px h-12 bg-gray-200" />
+            <div className="text-left sm:text-right">
+              <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">Skill gaps</p>
+              <p className="text-2xl sm:text-3xl font-black text-indigo-600 font-numeric mt-0.5">{user.criticalSkillGapsCount}</p>
             </div>
-            <div className="w-px h-10 bg-gray-200" />
-            <div className="text-right">
-              <p className="text-xs font-semibold text-gray-500 uppercase">Opportunity</p>
-              <p className="text-xl sm:text-2xl font-black text-emerald-600">High</p>
+            <div className="w-px h-12 bg-gray-200" />
+            <div className="text-left sm:text-right">
+              <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">Opportunity</p>
+              <p className="text-2xl sm:text-3xl font-black text-emerald-600 mt-0.5">High</p>
             </div>
           </div>
         </div>
 
         {/* Progress bar */}
-        <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+        <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
           <div
             ref={readinessRef}
-            className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-emerald-500 transition-all duration-1000 ease-out progress-fill"
+            className="h-full rounded-full bg-gradient-to-r from-indigo-500 via-indigo-600 to-emerald-500 transition-all duration-1000 ease-out progress-fill"
             style={{ width: '0%' }}
           />
         </div>
-        <div className="flex justify-between mt-1.5 text-[11px] text-gray-400">
+        <div className="flex justify-between mt-2 text-xs text-gray-400 font-semibold font-numeric">
           <span>0%</span>
           <span>50%</span>
-          <span>100%</span>
+          <span>100% Benchmark</span>
         </div>
       </div>
 
-      {/* ── Quick actions 2×2 grid ────────────────────────── */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {/* ── Quick actions 4-across responsive grid ────────────────────────── */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <ActionCard
-          icon={<BookOpen className="w-4 h-4 text-indigo-600" />}
+          icon={<BookOpen className="w-6 h-6 text-indigo-600" />}
           label="Learning Roadmap"
           value={`${user.criticalSkillGapsCount} Gaps`}
           sub={`Curriculum for ${user.targetRole}`}
@@ -139,7 +138,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
           onClick={() => onNavigateTab('learning')}
         />
         <ActionCard
-          icon={<Target className="w-4 h-4 text-emerald-600" />}
+          icon={<Target className="w-6 h-6 text-emerald-600" />}
           label="Technical Assessment"
           value={assessmentScore != null ? `${assessmentScore}%` : 'Not taken'}
           sub={`30 MCQs for ${user.targetRole}`}
@@ -148,16 +147,16 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
           onClick={onTakeAssessment}
         />
         <ActionCard
-          icon={<Video className="w-4 h-4 text-purple-600" />}
+          icon={<Video className="w-6 h-6 text-purple-600" />}
           label="AI Mock Interview"
           value="Practice"
-          sub="Real interview simulation with AI"
+          sub="Realistic interview simulation"
           ctaLabel="Start Interview"
           ctaColor="purple"
           onClick={onStartInterview}
         />
         <ActionCard
-          icon={<Briefcase className="w-4 h-4 text-sky-600" />}
+          icon={<Briefcase className="w-6 h-6 text-sky-600" />}
           label="Career Opportunities"
           value="Matched"
           sub={`Companies hiring for ${user.targetRole}`}
@@ -168,64 +167,64 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
       </div>
 
       {/* ── Career path snapshot ───────────────────────────── */}
-      <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-        <div className="flex items-center justify-between mb-5">
+      <div className="rounded-3xl border border-gray-200/90 bg-white p-6 sm:p-8 shadow-sm">
+        <div className="flex items-center justify-between mb-6">
           <div>
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Your Career Path</p>
+            <p className="text-xs sm:text-sm font-bold text-gray-500 uppercase tracking-wider">Your Career Pathway</p>
           </div>
           <button
             onClick={() => onNavigateTab('career-paths')}
-            className="flex items-center gap-1 text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition-colors"
+            className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-indigo-600 hover:text-indigo-700 transition-colors"
           >
-            All pathways <ArrowRight className="w-3.5 h-3.5" />
+            All pathways <ArrowRight className="w-4 h-4" />
           </button>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-stretch gap-3">
+        <div className="flex flex-col sm:flex-row items-stretch gap-4">
           {/* Current */}
-          <div className="flex-1 rounded-xl border border-emerald-200 bg-emerald-50/50 p-4">
-            <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block mb-1">Now</span>
-            <p className="text-base font-bold text-gray-900">{user.currentRole}</p>
-            <p className="text-xs text-gray-500 mt-0.5">{user.yearsOfExperience} yrs experience</p>
+          <div className="flex-1 rounded-2xl border border-emerald-200 bg-emerald-50/50 p-5 sm:p-6">
+            <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider block mb-1.5">Now</span>
+            <p className="text-lg sm:text-xl font-black text-gray-900">{user.currentRole}</p>
+            <p className="text-xs sm:text-sm text-gray-500 font-medium mt-1">{user.yearsOfExperience} yrs experience</p>
           </div>
 
           {/* Arrow */}
           <div className="flex items-center justify-center sm:px-2">
-            <div className="flex items-center gap-1">
-              <div className="w-8 h-px bg-indigo-200" />
-              <div className="w-2 h-2 rounded-full bg-indigo-400" />
-              <div className="w-8 h-px bg-indigo-200" />
+            <div className="flex items-center gap-1.5">
+              <div className="w-8 sm:w-12 h-0.5 bg-indigo-300" />
+              <div className="w-3 h-3 rounded-full bg-indigo-500 ring-2 ring-indigo-200" />
+              <div className="w-8 sm:w-12 h-0.5 bg-indigo-300" />
             </div>
           </div>
 
           {/* Target */}
-          <div className="flex-1 rounded-xl border border-indigo-300 bg-indigo-50/60 p-4 relative">
-            <span className="text-[10px] font-bold text-indigo-700 uppercase tracking-wider block mb-1">Target</span>
-            <p className="text-base font-bold text-indigo-700">{user.targetRole}</p>
-            <p className="text-xs text-emerald-600 font-medium mt-0.5">{dynamicReadiness}% ready</p>
-            <div className="absolute top-3 right-3">
-              <Target className="w-4 h-4 text-indigo-400" />
+          <div className="flex-1 rounded-2xl border border-indigo-300 bg-indigo-50/60 p-5 sm:p-6 relative">
+            <span className="text-xs font-bold text-indigo-700 uppercase tracking-wider block mb-1.5">Target</span>
+            <p className="text-lg sm:text-xl font-black text-indigo-800">{user.targetRole}</p>
+            <p className="text-xs sm:text-sm text-emerald-600 font-bold mt-1">{dynamicReadiness}% ready</p>
+            <div className="absolute top-5 right-5">
+              <Target className="w-5 h-5 text-indigo-400" />
             </div>
           </div>
         </div>
       </div>
 
       {/* ── Skill gaps + What to learn ─────────────────────── */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Skill gaps */}
-        <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-          <div className="flex items-center justify-between mb-4">
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Top Skill Gaps</p>
+        <div className="rounded-3xl border border-gray-200/90 bg-white p-6 sm:p-8 shadow-sm">
+          <div className="flex items-center justify-between mb-5">
+            <p className="text-xs sm:text-sm font-bold text-gray-500 uppercase tracking-wider">Top Skill Gaps</p>
             <button
               onClick={() => onNavigateTab('skill-gap')}
-              className="text-xs font-semibold text-indigo-600 hover:text-indigo-700 flex items-center gap-1 transition-colors"
+              className="text-xs sm:text-sm font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-1.5 transition-colors"
             >
-              Full analysis <ArrowRight className="w-3 h-3" />
+              Full analysis <ArrowRight className="w-4 h-4" />
             </button>
           </div>
 
-          <div className="space-y-3">
-            {/* Derive top gap skills by checking which common skills user does NOT have */}
+          <div className="space-y-4">
+            {/* Derive top gap skills */}
             {(() => {
               const ROLE_SKILLS: Record<string, {skill: string; pct: number}[]> = {
                 'Data Scientist': [
@@ -248,19 +247,19 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
               const userSkillNames = user.skills.map(s => s.name.toLowerCase());
               const roleGaps = ROLE_SKILLS[user.targetRole] || ROLE_SKILLS['Data Scientist'];
               const gaps = roleGaps.filter(g => !userSkillNames.some(u => u.includes(g.skill.toLowerCase()) || g.skill.toLowerCase().includes(u))).slice(0, 3);
-              if (gaps.length === 0) return <p className="text-xs text-emerald-600 font-semibold">No critical gaps detected for your current skills!</p>;
+              if (gaps.length === 0) return <p className="text-sm text-emerald-600 font-bold">No critical gaps detected for your current skills!</p>;
               return gaps.map((g, i) => (
-                <div key={g.skill}>
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-semibold text-gray-800">{g.skill}</span>
-                    <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${
+                <div key={g.skill} className="space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm sm:text-base font-bold text-gray-800">{g.skill}</span>
+                    <span className={`text-xs font-bold px-2.5 py-0.5 rounded-lg ${
                       i === 0 ? 'bg-indigo-50 text-indigo-700 border border-indigo-200' : 'bg-gray-100 text-gray-600'
-                    }`}>{i === 0 ? 'High' : 'Medium'}</span>
+                    }`}>{i === 0 ? 'High Priority' : 'Standard'}</span>
                   </div>
-                  <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
                     <div className={`h-full rounded-full ${i === 0 ? 'bg-indigo-500' : 'bg-gray-400'}`} style={{ width: `${g.pct}%` }} />
                   </div>
-                  <p className="text-[11px] text-gray-400 mt-0.5">{g.pct}% of {user.targetRole} postings require this</p>
+                  <p className="text-xs text-gray-400 font-medium">{g.pct}% of {user.targetRole} postings require this</p>
                 </div>
               ));
             })()}
@@ -268,51 +267,53 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
         </div>
 
         {/* What to do next */}
-        <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">What to Do Next</p>
+        <div className="rounded-3xl border border-gray-200/90 bg-white p-6 sm:p-8 shadow-sm flex flex-col justify-between">
+          <div>
+            <p className="text-xs sm:text-sm font-bold text-gray-500 uppercase tracking-wider mb-5">Recommended Next Steps</p>
 
-          <div className="space-y-3">
-            {(() => {
-              const userSkillNames = user.skills.map(s => s.name.toLowerCase());
-              const roleActions: Record<string, { label: string; sub: string; urgent: boolean }[]> = {
-                'Data Scientist': [
-                  { label: 'Learn Machine Learning fundamentals', sub: 'Coursera: ML Specialization by Andrew Ng', urgent: !userSkillNames.some(s => s.includes('machine') || s.includes('ml')) },
-                  { label: 'Practice statistics & A/B testing', sub: 'Khan Academy: Statistics & Probability', urgent: !userSkillNames.some(s => s.includes('stat')) },
-                  { label: 'Build a Kaggle portfolio project', sub: 'Classification or regression with real dataset', urgent: false },
-                ],
-                'Data Analyst': [
-                  { label: 'Master advanced SQL (window functions)', sub: 'Mode Analytics SQL Tutorial (free)', urgent: true },
-                  { label: 'Build a Power BI / Tableau dashboard', sub: 'Use public dataset from Kaggle', urgent: false },
-                  { label: 'Practice Python for data cleaning', sub: 'Pandas + NumPy fundamentals', urgent: false },
-                ],
-                'ML Engineer': [
-                  { label: 'Learn Docker & containerization', sub: 'Docker official getting-started guide', urgent: true },
-                  { label: 'Deploy an ML model with FastAPI', sub: 'Build a simple prediction endpoint', urgent: false },
-                  { label: 'Study MLOps fundamentals', sub: 'MLflow + model monitoring', urgent: false },
-                ],
-              };
-              const actions = roleActions[user.targetRole] || roleActions['Data Scientist'];
-              return actions.map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 mt-0.5 ${
-                    item.urgent ? 'border-indigo-600' : 'border-gray-300'
-                  }`}>
-                    {item.urgent && <div className="w-2 h-2 rounded-full bg-indigo-600" />}
+            <div className="space-y-4">
+              {(() => {
+                const userSkillNames = user.skills.map(s => s.name.toLowerCase());
+                const roleActions: Record<string, { label: string; sub: string; urgent: boolean }[]> = {
+                  'Data Scientist': [
+                    { label: 'Learn Machine Learning fundamentals', sub: 'Coursera: ML Specialization by Andrew Ng', urgent: !userSkillNames.some(s => s.includes('machine') || s.includes('ml')) },
+                    { label: 'Practice statistics & A/B testing', sub: 'Khan Academy: Statistics & Probability', urgent: !userSkillNames.some(s => s.includes('stat')) },
+                    { label: 'Build a Kaggle portfolio project', sub: 'Classification or regression with real dataset', urgent: false },
+                  ],
+                  'Data Analyst': [
+                    { label: 'Master advanced SQL (window functions)', sub: 'Mode Analytics SQL Tutorial (free)', urgent: true },
+                    { label: 'Build a Power BI / Tableau dashboard', sub: 'Use public dataset from Kaggle', urgent: false },
+                    { label: 'Practice Python for data cleaning', sub: 'Pandas + NumPy fundamentals', urgent: false },
+                  ],
+                  'ML Engineer': [
+                    { label: 'Learn Docker & containerization', sub: 'Docker official getting-started guide', urgent: true },
+                    { label: 'Deploy an ML model with FastAPI', sub: 'Build a simple prediction endpoint', urgent: false },
+                    { label: 'Study MLOps fundamentals', sub: 'MLflow + model monitoring', urgent: false },
+                  ],
+                };
+                const actions = roleActions[user.targetRole] || roleActions['Data Scientist'];
+                return actions.map((item, i) => (
+                  <div key={i} className="flex items-start gap-3.5">
+                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 mt-0.5 ${
+                      item.urgent ? 'border-indigo-600' : 'border-gray-300'
+                    }`}>
+                      {item.urgent && <div className="w-2.5 h-2.5 rounded-full bg-indigo-600" />}
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-gray-900">{item.label}</p>
+                      <p className="text-xs text-gray-500 mt-0.5">{item.sub}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-xs font-semibold text-gray-900">{item.label}</p>
-                    <p className="text-[11px] text-gray-500 mt-0.5">{item.sub}</p>
-                  </div>
-                </div>
-              ));
-            })()}
+                ));
+              })()}
+            </div>
           </div>
 
           <button
             onClick={() => onNavigateTab('learning')}
-            className="mt-5 w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-2 transition-colors shadow-sm"
+            className="mt-6 w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all shadow-md"
           >
-            <Zap className="w-3.5 h-3.5" />
+            <Zap className="w-4 h-4" />
             Open Full Learning Roadmap
           </button>
         </div>
@@ -320,32 +321,34 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
 
       {/* ── Career recommendations ─────────────────────────── */}
       {topRecs.length > 0 && (
-        <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-          <div className="flex items-center justify-between mb-4">
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Recommended Career Paths</p>
+        <div className="rounded-3xl border border-gray-200/90 bg-white p-6 sm:p-8 shadow-sm">
+          <div className="flex items-center justify-between mb-5">
+            <p className="text-xs sm:text-sm font-bold text-gray-500 uppercase tracking-wider">Recommended Career Alternatives</p>
             <button
               onClick={() => onNavigateTab('career-paths')}
-              className="text-xs font-semibold text-indigo-600 hover:text-indigo-700 flex items-center gap-1 transition-colors"
+              className="text-xs sm:text-sm font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-1.5 transition-colors"
             >
-              Explore all <ChevronRight className="w-3.5 h-3.5" />
+              Explore all <ChevronRight className="w-4 h-4" />
             </button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {topRecs.map(rec => (
               <div
                 key={rec.id}
                 onClick={() => onSelectRole(rec.role)}
-                className="p-4 rounded-xl border border-gray-200 hover:border-indigo-300 hover:shadow-sm cursor-pointer transition-all duration-200 card-hover"
+                className="p-5 rounded-2xl border border-gray-200 hover:border-indigo-300 hover:shadow-md cursor-pointer transition-all duration-200 flex flex-col justify-between"
               >
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <h3 className="text-xs font-bold text-gray-900 leading-tight">{rec.role}</h3>
-                  <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded shrink-0">
-                    {rec.match_score}%
-                  </span>
+                <div>
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <h3 className="text-base font-bold text-gray-900 leading-tight">{rec.role}</h3>
+                    <span className="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md shrink-0 font-numeric">
+                      {rec.match_score}%
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-gray-500 mb-3">{rec.salary_range}</p>
                 </div>
-                <p className="text-[11px] text-gray-500 mb-2">{rec.salary_range}</p>
-                <div className="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+                <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-indigo-500 rounded-full"
                     style={{ width: `${rec.match_score}%` }}
@@ -358,24 +361,29 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
       )}
 
       {/* ── Job market CTA ─────────────────────────────────── */}
-      <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="flex items-start gap-3">
-          <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center shrink-0">
-            <BarChart2 className="w-4.5 h-4.5 text-indigo-600" style={{ width: 18, height: 18 }} />
+      <div className="rounded-3xl border border-indigo-200/50 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-7 sm:p-9 shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 relative overflow-hidden">
+        <div className="flex items-start gap-5 z-10">
+          <div className="w-14 h-14 rounded-2xl bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center shrink-0 shadow-inner">
+            <BarChart2 className="w-7 h-7 text-indigo-300" />
           </div>
-          <div>
-            <h3 className="text-sm font-bold text-gray-900">Job Market Intelligence</h3>
-            <p className="text-xs text-gray-500 mt-0.5">
-              {marketOverview?.totalJobsAnalyzed?.toLocaleString() ?? '17,400'}+ job postings analyzed for your target role.
+          <div className="space-y-1.5">
+            <div className="flex items-center gap-2.5">
+              <h3 className="text-xl sm:text-2xl font-black text-white">Job Market Intelligence Stream</h3>
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                LIVE
+              </span>
+            </div>
+            <p className="text-sm sm:text-base text-slate-300 max-w-2xl">
+              {marketOverview?.totalJobsAnalyzed?.toLocaleString() ?? '15,841'}+ real-world postings analyzed with active internet job streaming.
             </p>
           </div>
         </div>
         <button
           onClick={() => onNavigateTab('job-market')}
-          className="px-4 py-2.5 bg-gray-900 hover:bg-gray-800 text-white rounded-lg text-xs font-semibold shrink-0 shadow-sm transition-colors flex items-center gap-2"
+          className="px-7 py-3.5 bg-white hover:bg-slate-100 active:bg-slate-200 text-slate-900 rounded-xl text-sm sm:text-base font-bold shrink-0 shadow-lg transition-all flex items-center gap-2.5 z-10"
         >
-          <TrendingUp className="w-3.5 h-3.5" />
-          View Market Benchmarks
+          <TrendingUp className="w-5 h-5 text-indigo-600" />
+          Explore Market Stream
         </button>
       </div>
     </div>
@@ -384,22 +392,26 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
 
 // ── ActionCard sub-component ─────────────────────────────
 
-const colorMap: Record<string, { btn: string; badge: string }> = {
+const colorMap: Record<string, { btn: string; badge: string; iconBg: string }> = {
   indigo: {
-    btn: 'border-indigo-200 text-indigo-700 bg-indigo-50 hover:bg-indigo-100',
+    btn: 'border-indigo-200 text-indigo-700 bg-indigo-50 hover:bg-indigo-100 hover:border-indigo-300',
     badge: 'text-indigo-600',
+    iconBg: 'bg-indigo-50 text-indigo-600 border-indigo-100',
   },
   emerald: {
-    btn: 'border-emerald-200 text-emerald-700 bg-emerald-50 hover:bg-emerald-100',
+    btn: 'border-emerald-200 text-emerald-700 bg-emerald-50 hover:bg-emerald-100 hover:border-emerald-300',
     badge: 'text-emerald-600',
+    iconBg: 'bg-emerald-50 text-emerald-600 border-emerald-100',
   },
   purple: {
-    btn: 'border-purple-200 text-purple-700 bg-purple-50 hover:bg-purple-100',
+    btn: 'border-purple-200 text-purple-700 bg-purple-50 hover:bg-purple-100 hover:border-purple-300',
     badge: 'text-purple-600',
+    iconBg: 'bg-purple-50 text-purple-600 border-purple-100',
   },
   sky: {
-    btn: 'border-sky-200 text-sky-700 bg-sky-50 hover:bg-sky-100',
+    btn: 'border-sky-200 text-sky-700 bg-sky-50 hover:bg-sky-100 hover:border-sky-300',
     badge: 'text-sky-600',
+    iconBg: 'bg-sky-50 text-sky-600 border-sky-100',
   },
 };
 
@@ -414,18 +426,20 @@ const ActionCard: React.FC<{
 }> = ({ icon, label, value, sub, ctaLabel, ctaColor, onClick }) => {
   const colors = colorMap[ctaColor] || colorMap.indigo;
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow duration-200">
+    <div className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
       <div>
-        <div className="flex items-center gap-2 mb-2">
-          {icon}
-          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{label}</p>
+        <div className="flex items-center gap-3.5 mb-3.5">
+          <div className={`w-11 h-11 rounded-2xl border flex items-center justify-center shrink-0 ${colors.iconBg}`}>
+            {icon}
+          </div>
+          <p className="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider">{label}</p>
         </div>
-        <p className={`text-2xl font-bold font-numeric ${colors.badge}`}>{value}</p>
-        <p className="text-xs text-gray-500 mt-1">{sub}</p>
+        <p className={`text-3xl sm:text-4xl font-black font-numeric mt-1 tracking-tight ${colors.badge}`}>{value}</p>
+        <p className="text-xs sm:text-sm text-slate-600 mt-1.5 font-medium">{sub}</p>
       </div>
       <button
         onClick={onClick}
-        className={`mt-4 px-3 py-2 rounded-lg text-xs font-semibold border transition-colors ${colors.btn}`}
+        className={`mt-6 px-4 py-3 rounded-xl text-xs sm:text-sm font-bold border shadow-2xs hover:shadow transition-all ${colors.btn}`}
       >
         {ctaLabel}
       </button>
