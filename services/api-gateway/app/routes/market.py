@@ -16,6 +16,13 @@ async def get_overview():
     except Exception as e:
         raise HTTPException(status_code=502, detail=str(e))
 
+@router.get("/charts")
+async def get_charts():
+    try:
+        return await market_client.get_charts()
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=str(e))
+
 @router.get("/roles")
 async def get_roles():
     try:

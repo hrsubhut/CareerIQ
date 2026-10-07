@@ -18,6 +18,14 @@ class MarketClient:
                 raise RuntimeError(f"Market overview failed ({resp.status_code})")
             return resp.json()
 
+    async def get_charts(self) -> Dict[str, Any]:
+        url = f"{self.base_url}/api/v1/market/charts"
+        async with httpx.AsyncClient(timeout=self.timeout) as client:
+            resp = await client.get(url)
+            if resp.status_code != 200:
+                raise RuntimeError(f"Market charts failed ({resp.status_code})")
+            return resp.json()
+
     async def get_skill_gap(self, target_role: str, skills: List[str]) -> Dict[str, Any]:
         url = f"{self.base_url}/api/v1/market/skill-gap"
         payload = {"target_role": target_role, "skills": skills}

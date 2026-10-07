@@ -8,9 +8,13 @@ class MarketApi {
       await sleep();
       return mockMarket.overview as MarketOverview;
     }
-    const res = await fetch(`${API_CONFIG.BASE_URL}/market/overview`);
-    if (!res.ok) throw new Error('Failed to fetch market overview');
-    return res.json();
+    try {
+      const res = await fetch(`${API_CONFIG.BASE_URL}/market/overview`);
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.warn('Market overview fetch failed, using fallback:', err);
+    }
+    return mockMarket.overview as MarketOverview;
   }
 
   async getMarketCharts(): Promise<MarketChartData> {
@@ -18,9 +22,13 @@ class MarketApi {
       await sleep();
       return mockMarket.charts as MarketChartData;
     }
-    const res = await fetch(`${API_CONFIG.BASE_URL}/market/charts`);
-    if (!res.ok) throw new Error('Failed to fetch market charts');
-    return res.json();
+    try {
+      const res = await fetch(`${API_CONFIG.BASE_URL}/market/charts`);
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.warn('Market charts fetch failed, using fallback:', err);
+    }
+    return mockMarket.charts as MarketChartData;
   }
 }
 
