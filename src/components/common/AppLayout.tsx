@@ -17,6 +17,7 @@ import {
   Bell,
   LogOut,
   ChevronRight,
+  Briefcase,
 } from 'lucide-react';
 import { UserProfile } from '../../types';
 import { MainNavTab } from './Navbar'; // Keep type import for compatibility
@@ -30,16 +31,17 @@ interface AppLayoutProps {
 }
 
 const SIDEBAR_ITEMS = [
-  { key: 'dashboard',      label: 'Dashboard',    icon: LayoutDashboard },
-  { key: 'career-paths',   label: 'Career Paths', icon: GitBranch },
-  { key: 'skill-gap',      label: 'Skill Gap',    icon: Sliders },
-  { key: 'learning',       label: 'Learning',     icon: BookOpen },
-  { key: 'job-market',     label: 'Job Market',   icon: TrendingUp },
-  { key: 'skills',         label: 'Skills',       icon: Brain },
-  { key: 'mock-test',      label: 'Assessment',   icon: ClipboardList },
-  { key: 'mock-interview', label: 'AI Interview', icon: Mic, badge: 'AI' },
-  { key: 'assistant',      label: 'CareerIQ Assistant', icon: MessageSquare, badge: 'AI' },
-  { key: 'profile',        label: 'Resume / Profile', icon: FileText },
+  { key: 'dashboard',      label: 'Dashboard',         icon: LayoutDashboard },
+  { key: 'career-paths',   label: 'Career Paths',      icon: GitBranch },
+  { key: 'skill-gap',      label: 'Skill Gap',         icon: Sliders },
+  { key: 'learning',       label: 'Learning',          icon: BookOpen },
+  { key: 'job-market',     label: 'Job Market',        icon: TrendingUp },
+  { key: 'skills',         label: 'Skills',            icon: Brain },
+  { key: 'jobs',           label: 'Career Opportunities', icon: Briefcase },
+  { key: 'mock-test',      label: 'Assessment',        icon: ClipboardList },
+  { key: 'mock-interview', label: 'AI Interview',      icon: Mic, badge: 'AI' },
+  { key: 'assistant',      label: 'CareerIQ Assistant',icon: MessageSquare, badge: 'AI' },
+  { key: 'profile',        label: 'Resume / Profile',  icon: FileText },
 ];
 
 function getInitials(name: string): string {

@@ -18,6 +18,7 @@ import { LearningRoadmapPage } from './components/future/LearningRoadmapPage';
 import { JobMarketPage } from './components/market/JobMarketPage';
 import { SkillsIntelligencePage } from './components/skills/SkillsIntelligencePage';
 import { ProfilePage } from './components/profile/ProfilePage';
+import { CareerOpportunities } from './components/jobs/CareerOpportunities';
 
 // AI Modules
 import { AssessmentTest } from './components/assessment/AssessmentTest';
@@ -216,6 +217,15 @@ export function App() {
               <SkillsIntelligencePage
                 skillsLeaderboard={skillsLeaderboard}
                 onNavigateSkillGap={() => setCurrentTab('skill-gap')}
+              />
+            )}
+
+            {currentTab === 'jobs' && (
+              <CareerOpportunities
+                user={user}
+                assessmentResult={lastTestResult}
+                onNavigateTab={handleTabSelect}
+                onStartAssessment={() => setShowMockTest(true)}
               />
             )}
 

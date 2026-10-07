@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
-  Brain, Clock, ChevronLeft, ChevronRight, Flag, CheckCircle2,
+  Brain, Clock, ChevronLeft, ChevronRight, ChevronDown, Flag, CheckCircle2,
   Circle, AlertTriangle, BarChart2, Loader2, RotateCcw, Zap,
   BookOpen, ArrowRight, X, TrendingUp, AlertCircle, Star,
 } from 'lucide-react';

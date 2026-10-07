@@ -127,8 +127,8 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
         </div>
       </div>
 
-      {/* ── 3-col quick actions ────────────────────────────── */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      {/* ── Quick actions 2×2 grid ────────────────────────── */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <ActionCard
           icon={<BookOpen className="w-4 h-4 text-indigo-600" />}
           label="Learning Roadmap"
@@ -155,6 +155,15 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
           ctaLabel="Start Interview"
           ctaColor="purple"
           onClick={onStartInterview}
+        />
+        <ActionCard
+          icon={<Briefcase className="w-4 h-4 text-sky-600" />}
+          label="Career Opportunities"
+          value="Matched"
+          sub={`Companies hiring for ${user.targetRole}`}
+          ctaLabel="View Opportunities"
+          ctaColor="sky"
+          onClick={() => onNavigateTab('jobs')}
         />
       </div>
 
@@ -387,6 +396,10 @@ const colorMap: Record<string, { btn: string; badge: string }> = {
   purple: {
     btn: 'border-purple-200 text-purple-700 bg-purple-50 hover:bg-purple-100',
     badge: 'text-purple-600',
+  },
+  sky: {
+    btn: 'border-sky-200 text-sky-700 bg-sky-50 hover:bg-sky-100',
+    badge: 'text-sky-600',
   },
 };
 
