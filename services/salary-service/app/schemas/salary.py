@@ -12,6 +12,8 @@ class SalaryPredictionInput(BaseModel):
 class SalaryPredictionOutput(BaseModel):
     predicted_salary: float
     predicted_salary_lakhs: float
+    salary_range_min_lakhs: Optional[float] = None
+    salary_range_max_lakhs: Optional[float] = None
     currency: str = "INR"
     formatted_salary: str
     model: Dict[str, Any]

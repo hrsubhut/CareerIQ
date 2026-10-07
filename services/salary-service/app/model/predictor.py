@@ -13,12 +13,18 @@ class SalaryPredictor:
         job_title: str,
         experience_years: float,
         location: str = "Bengaluru",
+        skills: Any = None,
         job_type: str = "Full Time",
         role_family: str = None
     ) -> Dict[str, Any]:
         valid, msg = validate_salary_input(job_title, experience_years)
         if not valid:
             raise ValueError(msg)
+
+        # Defensive handling if arguments were passed positionally
+        if isinstance(job_type, list):
+            skills = job_type
+            job_type = "Full Time"
 
         model = salary_loader.get_model()
         if model is None:
@@ -38,10 +44,14 @@ class SalaryPredictor:
             pred_lakhs = float(raw_prediction[0])
             pred_lakhs = max(2.5, round(pred_lakhs, 2))  # Realistic lower baseline
             pred_rupees = round(pred_lakhs * 100000, 2)
+            spread_min = round(max(2.0, pred_lakhs * 0.8), 2)
+            spread_max = round(pred_lakhs * 1.25, 2)
 
             return {
                 "predicted_salary": pred_rupees,
                 "predicted_salary_lakhs": pred_lakhs,
+                "salary_range_min_lakhs": spread_min,
+                "salary_range_max_lakhs": spread_max,
                 "currency": "INR",
                 "formatted_salary": f"₹{pred_lakhs:.1f} Lakhs / year",
                 "model": {
