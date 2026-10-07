@@ -53,8 +53,8 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({
       setFormData(prev => {
         const currentSkillNames = new Set(prev.skills.map(s => s.name.toLowerCase()));
         const additions = parsed.extractedSkills
-          .filter(name => !currentSkillNames.has(name.toLowerCase()))
-          .map(name => ({ name, level: 'Intermediate' as ProficiencyLevel }));
+          .filter((name: string) => !currentSkillNames.has(name.toLowerCase()))
+          .map((name: string) => ({ name, level: 'Intermediate' as ProficiencyLevel }));
         return {
           ...prev,
           skills: [...prev.skills, ...additions],

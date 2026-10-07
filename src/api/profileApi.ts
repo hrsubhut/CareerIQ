@@ -22,12 +22,21 @@ export interface ExtractedResumeData {
 }
 
 class ProfileApi {
+  async parseResume(file: File) {
+    const data = await this.extractResume(file);
+    return {
+      extractedSkills: data.skills || [],
+      experienceYears: data.experience_years || 0,
+      extractedRole: data.current_role || '',
+    };
+  }
+
   async extractResume(file: File): Promise<ExtractedResumeData> {
     const formData = new FormData();
     formData.append('file', file);
 
     try {
-      const res = await fetch(`${API_CONFIG.BACKEND_URL}/api/resume/extract`, {
+      const res = await fetch(`${API_CONFIG.BACKEND_URL}/api/v1/resume/parse`, {
         method: 'POST',
         body: formData,
       });
@@ -36,10 +45,10 @@ class ProfileApi {
         throw new Error(`Extraction service error (${res.status})`);
       }
 
-      return await res.json();
+      const json = await res.json();
+      return json.profile || json;
     } catch (err) {
-      console.warn('Backend extract fetch failed, executing robust client-side extraction fallback', err);
-      // Client-side text fallback if backend is unreachable
+      console.warn('Backend extract fetch failed, executing client-side fallback', err);
       const text = await file.text().catch(() => '');
       return {
         name: file.name.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' '),
@@ -58,13 +67,21 @@ class ProfileApi {
 
   async compareProfileWithDatasets(profile: { skills: string[]; target_role: string; experience_years: number }) {
     try {
-      const res = await fetch(`${API_CONFIG.BACKEND_URL}/api/career/compare`, {
+      const res = await fetch(`${API_CONFIG.BACKEND_URL}/api/v1/career/analyze`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(profile),
       });
       if (res.ok) {
-        return await res.json();
+        const data = await res.json();
+        return {
+          target_role: profile.target_role,
+          readiness_score: data.career?.readiness_score || 70,
+          overlapping_skills: data.skills?.matched_skills || [],
+          missing_skills: data.skills?.missing_critical_skills || [],
+          explanation: data.recommendations?.join(" ") || `Model evaluated profile for ${profile.target_role}.`,
+          dataset_context: data.market?.methodology || 'Trained ML career models'
+        };
       }
     } catch (e) {
       console.warn('Dataset comparison fallback', e);

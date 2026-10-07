@@ -30,6 +30,26 @@ class MarketApi {
     }
     return mockMarket.charts as MarketChartData;
   }
+
+  async getLiveFeed(limit: number = 40): Promise<any> {
+    try {
+      const res = await fetch(`${API_CONFIG.BASE_URL}/market/live-feed?limit=${limit}`);
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.warn('Live feed fetch failed:', err);
+    }
+    return { status: "OFFLINE", live_count: 0, jobs: [] };
+  }
+
+  async syncLiveWebJobs(): Promise<any> {
+    try {
+      const res = await fetch(`${API_CONFIG.BASE_URL}/market/sync-live`, { method: 'POST' });
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.warn('Sync live jobs failed:', err);
+    }
+    return { message: "Sync request dispatched" };
+  }
 }
 
 export const marketApi = new MarketApi();

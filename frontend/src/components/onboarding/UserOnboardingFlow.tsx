@@ -153,7 +153,7 @@ export const UserOnboardingFlow: React.FC<UserOnboardingFlowProps> = ({ onProfil
         profileStrength: Math.min(95, Math.max(50, skills.length * 10 + (uploadedFile ? 20 : 0))),
         matchingCareersCount: analysis.locations.length || 4,
         criticalSkillGapsCount: analysis.skills.missing_critical_skills?.length ?? 2,
-        marketOpportunity: analysis.market.total_postings > 1000 ? 'High' : 'Moderate',
+        marketOpportunity: analysis.market.total_postings > 1000 ? 'High' : 'Medium',
         careerInterests: [targetRole],
         skills: skills.map(s => ({ name: s.name, level: s.level, verified: true, yearsOfExperience })),
         lastUpdated: new Date().toISOString(),

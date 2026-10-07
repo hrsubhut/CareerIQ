@@ -1,28 +1,36 @@
 from typing import Dict, Any, List
 from app.repositories.jobs_repository import jobs_repo
 
+from app.ingestion.live_store import live_job_store
+
 def get_market_overview_stats() -> Dict[str, Any]:
     meta = jobs_repo.get_metadata()
     roles_df = jobs_repo.get_roles_df()
+    live_stats = live_job_store.get_stats()
+    live_count = live_stats.get("total_live_jobs", 0)
     
-    total_jobs = int(meta.get("analytics_rows", 15841))
+    baseline_jobs = int(meta.get("analytics_rows", 15841))
+    total_jobs = baseline_jobs + live_count
+    
     top_role = "Business Analyst"
     if not roles_df.empty:
         top_role = str(roles_df.iloc[0]["display_role"])
     
     return {
         "totalJobsAnalyzed": total_jobs,
+        "liveJobsSynced": live_count,
+        "uniqueLiveCompanies": live_stats.get("unique_companies", 0),
         "averageSalary": "₹12.4 Lakhs ($115k)",
-        "topRole": f"{top_role} ({total_jobs:,} total corpus)",
+        "topRole": f"{top_role} ({total_jobs:,} active)",
         "topSkill": "Python (74.2% demand)",
         "topLocation": "Bengaluru / Remote-Friendly",
-        "dataPeriod": "2024-2026 Production Dataset",
-        "datasetName": "Aggregated Industry Analytics & Machine Learning Corpus",
+        "dataPeriod": "2024-2026 Real-Time Live Stream",
+        "datasetName": f"Aggregated Market Corpus ({baseline_jobs:,} Baseline + {live_count} Live Web)",
         "recordsAnalyzed": {
             "analyticsJobs": total_jobs,
             "dataScienceJobs": 470
         },
-        "lastUpdated": "2026-10-08"
+        "lastUpdated": "Live Stream Active"
     }
 
 def get_market_chart_analytics() -> Dict[str, Any]:

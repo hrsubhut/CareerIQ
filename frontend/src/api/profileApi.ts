@@ -22,6 +22,15 @@ export interface ExtractedResumeData {
 }
 
 class ProfileApi {
+  async parseResume(file: File) {
+    const data = await this.extractResume(file);
+    return {
+      extractedSkills: data.skills || [],
+      experienceYears: data.experience_years || 0,
+      extractedRole: data.current_role || '',
+    };
+  }
+
   async extractResume(file: File): Promise<ExtractedResumeData> {
     const formData = new FormData();
     formData.append('file', file);

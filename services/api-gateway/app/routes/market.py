@@ -23,6 +23,20 @@ async def get_charts():
     except Exception as e:
         raise HTTPException(status_code=502, detail=str(e))
 
+@router.get("/live-feed")
+async def get_live_feed(limit: int = 40):
+    try:
+        return await market_client.get_live_feed(limit=limit)
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=str(e))
+
+@router.post("/sync-live")
+async def sync_live():
+    try:
+        return await market_client.sync_live()
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=str(e))
+
 @router.get("/roles")
 async def get_roles():
     try:

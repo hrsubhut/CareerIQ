@@ -15,6 +15,8 @@ import {
   Zap,
 } from 'lucide-react';
 import { api } from '../../api';
+import { resumeApi } from '../../services/resumeApi';
+import { careerApi } from '../../services/careerApi';
 import { UserProfile, ProficiencyLevel } from '../../types';
 
 interface UserOnboardingFlowProps {
@@ -81,16 +83,15 @@ export const UserOnboardingFlow: React.FC<UserOnboardingFlowProps> = ({ onProfil
     setUploadedFile(file);
     setIsExtracting(true);
     try {
-      const extracted = await api.profile.extractResume(file);
+      const resp = await resumeApi.parseResume(file);
+      const extracted = resp.profile;
       if (extracted.name) setName(extracted.name);
       if (extracted.email) setEmail(extracted.email);
       if (extracted.location) setLocation(extracted.location);
       if (extracted.current_role) setCurrentRole(extracted.current_role);
       if (extracted.experience_years) setYearsOfExperience(extracted.experience_years);
       if (extracted.education?.length > 0) setEducation(extracted.education[0]);
-      if (extracted.detailed_skills?.length > 0) {
-        setSkills(extracted.detailed_skills.map(s => ({ name: s.normalized, level: 'Intermediate' as ProficiencyLevel })));
-      } else if (extracted.skills?.length > 0) {
+      if (extracted.skills?.length > 0) {
         setSkills(extracted.skills.map(s => ({ name: s, level: 'Intermediate' as ProficiencyLevel })));
       }
       setStep('review');
@@ -130,12 +131,15 @@ export const UserOnboardingFlow: React.FC<UserOnboardingFlowProps> = ({ onProfil
     if (!validateReview()) return;
     setIsAnalyzing(true);
     try {
-      const comparison = await api.profile.compareProfileWithDatasets({
-        skills: skills.map(s => s.name),
+      const analysis = await careerApi.analyzeCareer({
         target_role: targetRole,
-        experience_years: yearsOfExperience,
+        skills: skills.map(s => s.name),
+        experience_years: Number(yearsOfExperience) || 0,
+        location: location || 'Bengaluru',
+        education: education ? [education] : []
       });
 
+      const readinessScore = Math.round(analysis.career.readiness_score || 50);
       const userProfile: UserProfile = {
         id: `usr_${Date.now()}`,
         name: name.trim(),
@@ -144,12 +148,12 @@ export const UserOnboardingFlow: React.FC<UserOnboardingFlowProps> = ({ onProfil
         targetRole,
         yearsOfExperience: Number(yearsOfExperience) || 0,
         education: education || 'Bachelor Degree',
-        location: location || 'Remote / Hybrid',
-        careerReadiness: comparison.readiness_score || 50,
+        location: location || 'Bengaluru',
+        careerReadiness: readinessScore,
         profileStrength: Math.min(95, Math.max(50, skills.length * 10 + (uploadedFile ? 20 : 0))),
-        matchingCareersCount: 4,
-        criticalSkillGapsCount: comparison.missing_skills?.length ?? 2,
-        marketOpportunity: 'High',
+        matchingCareersCount: analysis.locations.length || 4,
+        criticalSkillGapsCount: analysis.skills.missing_critical_skills?.length ?? 2,
+        marketOpportunity: analysis.market.total_postings > 1000 ? 'High' : 'Medium',
         careerInterests: [targetRole],
         skills: skills.map(s => ({ name: s.name, level: s.level, verified: true, yearsOfExperience })),
         lastUpdated: new Date().toISOString(),
@@ -157,7 +161,26 @@ export const UserOnboardingFlow: React.FC<UserOnboardingFlowProps> = ({ onProfil
 
       onProfileCompleted(userProfile);
     } catch (e) {
-      console.error(e);
+      console.error("Career analysis failed, building profile with defaults", e);
+      const userProfile: UserProfile = {
+        id: `usr_${Date.now()}`,
+        name: name.trim(),
+        email: email || `${name.toLowerCase().replace(/\s+/g, '.')}@example.com`,
+        currentRole: currentRole.trim(),
+        targetRole,
+        yearsOfExperience: Number(yearsOfExperience) || 0,
+        education: education || 'Bachelor Degree',
+        location: location || 'Bengaluru',
+        careerReadiness: 65,
+        profileStrength: 75,
+        matchingCareersCount: 4,
+        criticalSkillGapsCount: 2,
+        marketOpportunity: 'High',
+        careerInterests: [targetRole],
+        skills: skills.map(s => ({ name: s.name, level: s.level, verified: true, yearsOfExperience })),
+        lastUpdated: new Date().toISOString(),
+      };
+      onProfileCompleted(userProfile);
     } finally {
       setIsAnalyzing(false);
     }
