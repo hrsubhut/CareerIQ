@@ -1,0 +1,101 @@
+{
+  "targetRole": "Data Scientist",
+  "overallGapScore": 34,
+  "skills": [
+    {
+      "skill": "Python",
+      "yourLevel": "Advanced",
+      "requiredLevel": "Advanced",
+      "gapStatus": "None",
+      "importance": "High",
+      "careerImpact": 92,
+      "learningEffortWeeks": 0
+    },
+    {
+      "skill": "SQL",
+      "yourLevel": "Intermediate",
+      "requiredLevel": "Advanced",
+      "gapStatus": "Medium",
+      "importance": "High",
+      "careerImpact": 88,
+      "learningEffortWeeks": 3
+    },
+    {
+      "skill": "Statistics & Hypothesis Testing",
+      "yourLevel": "Beginner",
+      "requiredLevel": "Advanced",
+      "gapStatus": "Large",
+      "importance": "High",
+      "careerImpact": 94,
+      "learningEffortWeeks": 5
+    },
+    {
+      "skill": "Machine Learning (Supervised/Unsupervised)",
+      "yourLevel": "Beginner",
+      "requiredLevel": "Advanced",
+      "gapStatus": "Large",
+      "importance": "High",
+      "careerImpact": 96,
+      "learningEffortWeeks": 6
+    },
+    {
+      "skill": "Power BI & Visualization",
+      "yourLevel": "Intermediate",
+      "requiredLevel": "Intermediate",
+      "gapStatus": "None",
+      "importance": "Medium",
+      "careerImpact": 72,
+      "learningEffortWeeks": 0
+    },
+    {
+      "skill": "Data Wrangling & Feature Engineering",
+      "yourLevel": "Intermediate",
+      "requiredLevel": "Advanced",
+      "gapStatus": "Minor",
+      "importance": "High",
+      "careerImpact": 86,
+      "learningEffortWeeks": 2
+    },
+    {
+      "skill": "Model Evaluation & Metrics",
+      "yourLevel": "Beginner",
+      "requiredLevel": "Intermediate",
+      "gapStatus": "Medium",
+      "importance": "High",
+      "careerImpact": 90,
+      "learningEffortWeeks": 3
+    },
+    {
+      "skill": "Model Serving & APIs (FastAPI)",
+      "yourLevel": "Beginner",
+      "requiredLevel": "Intermediate",
+      "gapStatus": "Medium",
+      "importance": "Medium",
+      "careerImpact": 78,
+      "learningEffortWeeks": 2
+    }
+  ],
+  "prioritySkills": [
+    {
+      "rank": 1,
+      "skill": "Machine Learning",
+      "gap": "Large Gap (Beginner → Advanced)",
+      "importance": "High",
+      "reason": "Machine Learning is the single highest-weighted differentiator in 84% of Data Scientist job qualifications."
+    },
+    {
+      "rank": 2,
+      "skill": "Statistics & Hypothesis Testing",
+      "gap": "Large Gap (Beginner → Advanced)",
+      "importance": "High",
+      "reason": "Required for rigorous experimental design, A/B testing validation, and model confidence interval estimation."
+    },
+    {
+      "rank": 3,
+      "skill": "Advanced SQL & Query Optimization",
+      "gap": "Medium Gap (Intermediate → Advanced)",
+      "importance": "High",
+      "reason": "Production datasets require window functions, CTEs, and distributed SQL query performance tuning."
+    }
+  ]
+}

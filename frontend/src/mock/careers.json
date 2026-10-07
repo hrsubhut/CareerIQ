@@ -1,0 +1,173 @@
+[
+  {
+    "id": "car_01",
+    "role": "Data Analyst",
+    "match_score": 87,
+    "readiness_score": 89,
+    "opportunity_score": 88,
+    "demand": "High",
+    "salary_range": "$75,000 - $105,000",
+    "avg_salary": 92000,
+    "required_experience": "1-3 Years",
+    "key_skills": ["SQL", "Excel", "Power BI", "Data Visualization", "Python"],
+    "required_skills": [
+      { "name": "SQL", "importance": "High" },
+      { "name": "Excel", "importance": "High" },
+      { "name": "Power BI", "importance": "High" },
+      { "name": "Python", "importance": "Medium" },
+      { "name": "Business Metrics", "importance": "Medium" }
+    ],
+    "current_skills": ["SQL", "Excel", "Power BI", "Python", "Data Visualization"],
+    "skill_gaps": [
+      { "name": "Advanced Statistical Testing", "severity": "Optional" }
+    ],
+    "missing_skills": ["Advanced Statistical Testing"],
+    "reasons": [
+      "Current core skills (SQL, Excel, Python) fully align with 92% of analyzed postings",
+      "2 years of demonstrable domain experience matches standard Mid-Level requirement",
+      "Immediate role readiness with minimal upskilling"
+    ],
+    "next_action": "Strengthen domain storytelling and automated dashboard reporting",
+    "confidence": "High",
+    "transition_effort": "Low",
+    "analyzed_postings": 4820,
+    "pathway_stage": "Ready Now"
+  },
+  {
+    "id": "car_02",
+    "role": "Business Intelligence Analyst",
+    "match_score": 82,
+    "readiness_score": 80,
+    "opportunity_score": 85,
+    "demand": "High",
+    "salary_range": "$80,000 - $115,000",
+    "avg_salary": 98000,
+    "required_experience": "2-4 Years",
+    "key_skills": ["Power BI", "SQL", "Data Modeling", "ETL Concepts", "DAX"],
+    "required_skills": [
+      { "name": "SQL", "importance": "High" },
+      { "name": "Power BI", "importance": "High" },
+      { "name": "Data Modeling", "importance": "High" },
+      { "name": "DAX", "importance": "Medium" }
+    ],
+    "current_skills": ["SQL", "Power BI", "Excel"],
+    "skill_gaps": [
+      { "name": "Data Modeling", "severity": "Important" },
+      { "name": "Advanced DAX", "severity": "Important" }
+    ],
+    "missing_skills": ["Data Modeling", "Advanced DAX"],
+    "reasons": [
+      "Solid SQL fundamentals and intermediate Power BI experience",
+      "High market volume with strong demand across retail & fintech sectors",
+      "Manageable transition requiring dimensional modeling practice"
+    ],
+    "next_action": "Complete dimensional modeling case study in Star Schema",
+    "confidence": "High",
+    "transition_effort": "Manageable",
+    "analyzed_postings": 3410,
+    "pathway_stage": "Near-Term"
+  },
+  {
+    "id": "car_03",
+    "role": "Data Scientist",
+    "match_score": 71,
+    "readiness_score": 68,
+    "opportunity_score": 84,
+    "demand": "Very High",
+    "salary_range": "$110,000 - $160,000",
+    "avg_salary": 132000,
+    "required_experience": "3-5 Years",
+    "key_skills": ["Python", "Machine Learning", "Statistics", "SQL", "Data Wrangling"],
+    "required_skills": [
+      { "name": "Python", "importance": "High" },
+      { "name": "SQL", "importance": "High" },
+      { "name": "Statistics", "importance": "High" },
+      { "name": "Machine Learning", "importance": "High" },
+      { "name": "Data Visualization", "importance": "Medium" }
+    ],
+    "current_skills": ["Python", "SQL", "Data Visualization"],
+    "skill_gaps": [
+      { "name": "Machine Learning", "severity": "Critical" },
+      { "name": "Inferential Statistics", "severity": "Important" },
+      { "name": "Model Deployment (FastAPI/Docker)", "severity": "Optional" }
+    ],
+    "missing_skills": ["Machine Learning", "Inferential Statistics", "Model Deployment"],
+    "reasons": [
+      "Strong Python programming and data query foundation already verified",
+      "High growth role with significant compensation upside (+43% average hike)",
+      "Manageable transition path: primary blocker is practical ML model validation"
+    ],
+    "next_action": "Build end-to-end scikit-learn classification & regression portfolio project",
+    "confidence": "Medium",
+    "transition_effort": "Manageable",
+    "analyzed_postings": 5120,
+    "pathway_stage": "Near-Term"
+  },
+  {
+    "id": "car_04",
+    "role": "Senior Data Analyst",
+    "match_score": 78,
+    "readiness_score": 75,
+    "opportunity_score": 81,
+    "demand": "High",
+    "salary_range": "$95,000 - $130,000",
+    "avg_salary": 114000,
+    "required_experience": "3-5 Years",
+    "key_skills": ["Advanced SQL", "Python", "A/B Testing", "Stakeholder Communication", "dbt"],
+    "required_skills": [
+      { "name": "SQL", "importance": "High" },
+      { "name": "A/B Testing", "importance": "High" },
+      { "name": "Python", "importance": "Medium" },
+      { "name": "dbt", "importance": "Medium" }
+    ],
+    "current_skills": ["SQL", "Python", "Data Visualization"],
+    "skill_gaps": [
+      { "name": "A/B Testing & Experimentation", "severity": "Critical" },
+      { "name": "dbt / Analytics Engineering", "severity": "Important" }
+    ],
+    "missing_skills": ["A/B Testing", "dbt"],
+    "reasons": [
+      "Natural progression from current Analyst role with proven delivery record",
+      "Requires deeper causal inference and cross-functional leadership ownership"
+    ],
+    "next_action": "Learn A/B experimentation frameworks and metric sensitivity calculations",
+    "confidence": "High",
+    "transition_effort": "Manageable",
+    "analyzed_postings": 2980,
+    "pathway_stage": "Near-Term"
+  },
+  {
+    "id": "car_05",
+    "role": "Machine Learning Engineer",
+    "match_score": 58,
+    "readiness_score": 52,
+    "opportunity_score": 91,
+    "demand": "Very High",
+    "salary_range": "$125,000 - $180,000",
+    "avg_salary": 148000,
+    "required_experience": "4+ Years",
+    "key_skills": ["Python", "Deep Learning", "MLOps", "Distributed Computing", "Software Engineering"],
+    "required_skills": [
+      { "name": "Python", "importance": "High" },
+      { "name": "MLOps", "importance": "High" },
+      { "name": "Docker & Kubernetes", "importance": "High" },
+      { "name": "Software Engineering Principles", "importance": "High" }
+    ],
+    "current_skills": ["Python", "Git"],
+    "skill_gaps": [
+      { "name": "Deep Learning / PyTorch", "severity": "Critical" },
+      { "name": "MLOps Pipelines", "severity": "Critical" },
+      { "name": "Distributed Systems", "severity": "Important" }
+    ],
+    "missing_skills": ["PyTorch", "MLOps", "Docker", "Kubernetes"],
+    "reasons": [
+      "High compensation ceiling and immense industry demand across modern AI products",
+      "Requires substantial foundational systems engineering and deployment expertise"
+    ],
+    "next_action": "Master core ML lifecycle before pivoting to systems engineering and MLOps",
+    "confidence": "Medium",
+    "transition_effort": "Substantial",
+    "analyzed_postings": 2150,
+    "pathway_stage": "Long-Term"
+  }
+]

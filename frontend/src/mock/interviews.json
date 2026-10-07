@@ -1,0 +1,43 @@
+{
+  "targetRole": "Data Scientist",
+  "stages": [
+    {
+      "id": 1,
+      "name": "Introduction",
+      "question": "Can you walk us through an analytical project where your data insights directly altered a business or product decision?",
+      "focus": "Communication, business acumen, project ownership"
+    },
+    {
+      "id": 2,
+      "name": "Technical Deep Dive",
+      "question": "How do you handle severe class imbalance (e.g. 99:1) when training a classification model, and why might accuracy be a deceptive metric?",
+      "focus": "Algorithm intuition, Precision/Recall, PR-AUC, SMOTE vs Cost-sensitive learning"
+    },
+    {
+      "id": 3,
+      "name": "Situational Scenario",
+      "question": "Your A/B test results indicate a 4% conversion uplift at p=0.04, but the product director points out server latency increased by 120ms. How do you advise leadership?",
+      "focus": "Trade-off analysis, user experience metrics, risk management"
+    },
+    {
+      "id": 4,
+      "name": "Behavioral",
+      "question": "Tell me about a time when a stakeholder disagreed with your analytical findings. How did you resolve the difference without compromising data integrity?",
+      "focus": "Data ethics, persuasion, stakeholder diplomacy"
+    },
+    {
+      "id": 5,
+      "name": "Role-Specific Case",
+      "question": "Design an end-to-end churn prediction pipeline: from raw database logs to live scoring and alerting. What failure modes do you monitor?",
+      "focus": "Data engineering, feature drift, model decay, production reliability"
+    }
+  ],
+  "sampleFeedback": {
+    "communication": 84,
+    "technicalKnowledge": 76,
+    "problemSolving": 88,
+    "answerStructure": 82,
+    "roleReadiness": 80,
+    "overallNotes": "Strong technical articulation and solid grasp of trade-offs. Recommend practicing STAR structure for situational leadership examples."
+  }
+}

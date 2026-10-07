@@ -1,0 +1,195 @@
+{
+  "leaderboard": [
+    {
+      "name": "Python",
+      "demandPercentage": 74.2,
+      "roleDiversity": 94,
+      "avgSalaryAssociation": "$124,500",
+      "experienceRequirement": "1-3 Years",
+      "opportunityScore": 96,
+      "category": "Languages",
+      "relatedSkills": ["Pandas", "NumPy", "Scikit-Learn", "FastAPI"],
+      "rolesRequiring": ["Data Scientist", "ML Engineer", "Data Analyst", "Data Engineer"],
+      "learningPriority": "High"
+    },
+    {
+      "name": "SQL",
+      "demandPercentage": 78.5,
+      "roleDiversity": 98,
+      "avgSalaryAssociation": "$108,000",
+      "experienceRequirement": "0-2 Years",
+      "opportunityScore": 95,
+      "category": "Languages",
+      "relatedSkills": ["PostgreSQL", "BigQuery", "Snowflake", "Window Functions"],
+      "rolesRequiring": ["Data Analyst", "BI Analyst", "Data Scientist", "Analytics Engineer"],
+      "learningPriority": "High"
+    },
+    {
+      "name": "Machine Learning",
+      "demandPercentage": 46.8,
+      "roleDiversity": 76,
+      "avgSalaryAssociation": "$138,000",
+      "experienceRequirement": "2-4 Years",
+      "opportunityScore": 92,
+      "category": "ML/AI",
+      "relatedSkills": ["Scikit-Learn", "XGBoost", "PyTorch", "Model Evaluation"],
+      "rolesRequiring": ["Data Scientist", "ML Engineer", "AI Researcher"],
+      "learningPriority": "High"
+    },
+    {
+      "name": "Statistics & Probability",
+      "demandPercentage": 52.1,
+      "roleDiversity": 82,
+      "avgSalaryAssociation": "$122,000",
+      "experienceRequirement": "1-3 Years",
+      "opportunityScore": 88,
+      "category": "Analytics",
+      "relatedSkills": ["Hypothesis Testing", "A/B Testing", "Regression Analysis", "Bayesian"],
+      "rolesRequiring": ["Data Scientist", "Quantitative Analyst", "Senior Data Analyst"],
+      "learningPriority": "High"
+    },
+    {
+      "name": "Power BI",
+      "demandPercentage": 42.0,
+      "roleDiversity": 70,
+      "avgSalaryAssociation": "$98,000",
+      "experienceRequirement": "1-2 Years",
+      "opportunityScore": 84,
+      "category": "Visualization",
+      "relatedSkills": ["DAX", "Power Query", "Data Modeling", "Dashboard Design"],
+      "rolesRequiring": ["BI Analyst", "Data Analyst", "Operations Analyst"],
+      "learningPriority": "Medium"
+    },
+    {
+      "name": "Tableau",
+      "demandPercentage": 38.4,
+      "roleDiversity": 68,
+      "avgSalaryAssociation": "$102,000",
+      "experienceRequirement": "1-3 Years",
+      "opportunityScore": 81,
+      "category": "Visualization",
+      "relatedSkills": ["Calculated Fields", "LOD Expressions", "Story Points"],
+      "rolesRequiring": ["Data Analyst", "BI Developer", "Marketing Analyst"],
+      "learningPriority": "Medium"
+    },
+    {
+      "name": "Excel (Advanced)",
+      "demandPercentage": 61.5,
+      "roleDiversity": 88,
+      "avgSalaryAssociation": "$88,000",
+      "experienceRequirement": "0-1 Years",
+      "opportunityScore": 76,
+      "category": "Analytics",
+      "relatedSkills": ["XLOOKUP", "Pivot Tables", "VBA / Macros", "Financial Modeling"],
+      "rolesRequiring": ["Financial Analyst", "Data Analyst", "Business Analyst"],
+      "learningPriority": "Standard"
+    },
+    {
+      "name": "Data Visualization",
+      "demandPercentage": 64.0,
+      "roleDiversity": 90,
+      "avgSalaryAssociation": "$105,000",
+      "experienceRequirement": "1-2 Years",
+      "opportunityScore": 86,
+      "category": "Visualization",
+      "relatedSkills": ["Matplotlib", "Seaborn", "Information Design", "Executive Storytelling"],
+      "rolesRequiring": ["Data Analyst", "Data Scientist", "BI Analyst"],
+      "learningPriority": "Medium"
+    }
+  ],
+  "matrix": {
+    "roles": ["Data Analyst", "BI Analyst", "Data Scientist", "Senior Data Analyst", "ML Engineer"],
+    "skills": [
+      {
+        "skill": "Python",
+        "levels": {
+          "Data Analyst": "Medium",
+          "BI Analyst": "Low",
+          "Data Scientist": "High",
+          "Senior Data Analyst": "Medium",
+          "ML Engineer": "High"
+        }
+      },
+      {
+        "skill": "SQL",
+        "levels": {
+          "Data Analyst": "High",
+          "BI Analyst": "High",
+          "Data Scientist": "High",
+          "Senior Data Analyst": "High",
+          "ML Engineer": "Medium"
+        }
+      },
+      {
+        "skill": "Statistics",
+        "levels": {
+          "Data Analyst": "Medium",
+          "BI Analyst": "Low",
+          "Data Scientist": "High",
+          "Senior Data Analyst": "High",
+          "ML Engineer": "High"
+        }
+      },
+      {
+        "skill": "Machine Learning",
+        "levels": {
+          "Data Analyst": "Low",
+          "BI Analyst": "None",
+          "Data Scientist": "High",
+          "Senior Data Analyst": "Low",
+          "ML Engineer": "High"
+        }
+      },
+      {
+        "skill": "Power BI / Tableau",
+        "levels": {
+          "Data Analyst": "High",
+          "BI Analyst": "High",
+          "Data Scientist": "Medium",
+          "Senior Data Analyst": "High",
+          "ML Engineer": "Low"
+        }
+      },
+      {
+        "skill": "Data Modeling",
+        "levels": {
+          "Data Analyst": "Medium",
+          "BI Analyst": "High",
+          "Data Scientist": "Medium",
+          "Senior Data Analyst": "High",
+          "ML Engineer": "Medium"
+        }
+      },
+      {
+        "skill": "A/B Testing",
+        "levels": {
+          "Data Analyst": "Low",
+          "BI Analyst": "Low",
+          "Data Scientist": "High",
+          "Senior Data Analyst": "High",
+          "ML Engineer": "Medium"
+        }
+      },
+      {
+        "skill": "MLOps / Cloud",
+        "levels": {
+          "Data Analyst": "None",
+          "BI Analyst": "None",
+          "Data Scientist": "Medium",
+          "Senior Data Analyst": "Low",
+          "ML Engineer": "High"
+        }
+      }
+    ]
+  },
+  "opportunityBreakdown": {
+    "overallScore": 84,
+    "roleCompatibility": 85,
+    "marketDemand": 91,
+    "careerGrowth": 80,
+    "compensation": 76,
+    "roleDiversity": 88,
+    "transitionEffort": 72,
+    "methodologyNote": "Decision-support estimate based on 17,400 analyzed job postings, normalized skill overlaps, and empirical compensation trajectories."
+  }
+}

@@ -1,0 +1,99 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    build:
+      context: ./services/api-gateway
+      dockerfile: Dockerfile
+    container_name: careeriq-api-gateway
+    ports:
+      - "8000:8000"
+    environment:
+      - GATEWAY_PORT=8000
+      - RESUME_SERVICE_URL=http://resume-service:8001
+      - SALARY_SERVICE_URL=http://salary-service:8002
+      - LOCATION_SERVICE_URL=http://location-service:8003
+      - MARKET_SERVICE_URL=http://market-service:8004
+      - PROFILE_SERVICE_URL=http://profile-service:8005
+    depends_on:
+      - resume-service
+      - salary-service
+      - location-service
+      - market-service
+      - profile-service
+    networks:
+      - careeriq-network
+
+  resume-service:
+    build:
+      context: ./services/resume-service
+      dockerfile: Dockerfile
+    container_name: careeriq-resume-service
+    ports:
+      - "8001:8001"
+    networks:
+      - careeriq-network
+
+  salary-service:
+    build:
+      context: ./services/salary-service
+      dockerfile: Dockerfile
+    container_name: careeriq-salary-service
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./services/salary-service/models:/app/models
+    networks:
+      - careeriq-network
+
+  location-service:
+    build:
+      context: ./services/location-service
+      dockerfile: Dockerfile
+    container_name: careeriq-location-service
+    ports:
+      - "8003:8003"
+    volumes:
+      - ./services/location-service/models:/app/models
+    networks:
+      - careeriq-network
+
+  market-service:
+    build:
+      context: ./services/market-service
+      dockerfile: Dockerfile
+    container_name: careeriq-market-service
+    ports:
+      - "8004:8004"
+    volumes:
+      - ./services/market-service/models:/app/models
+    networks:
+      - careeriq-network
+
+  profile-service:
+    build:
+      context: ./services/profile-service
+      dockerfile: Dockerfile
+    container_name: careeriq-profile-service
+    ports:
+      - "8005:8005"
+    volumes:
+      - ./data:/app/data
+    networks:
+      - careeriq-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: careeriq-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - api-gateway
+    networks:
+      - careeriq-network
+
+networks:
+  careeriq-network:
+    driver: bridge

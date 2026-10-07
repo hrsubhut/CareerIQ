@@ -1,0 +1,65 @@
+[
+  {
+    "id": "comp_1",
+    "name": "Amazon",
+    "industry": "Technology",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+    "careerPageUrl": "https://amazon.jobs",
+    "supportedRoles": ["Software Engineer", "Data Scientist", "ML Engineer", "Data Analyst", "Frontend Developer", "Backend Developer"],
+    "locations": ["Seattle, WA", "Remote", "New York, NY", "London, UK", "Bengaluru, IN"]
+  },
+  {
+    "id": "comp_2",
+    "name": "Microsoft",
+    "industry": "Technology",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
+    "careerPageUrl": "https://careers.microsoft.com",
+    "supportedRoles": ["Software Engineer", "Data Scientist", "ML Engineer", "Frontend Developer", "Backend Developer", "Full Stack Developer"],
+    "locations": ["Redmond, WA", "Remote", "San Francisco, CA", "Dublin, IE", "Hyderabad, IN"]
+  },
+  {
+    "id": "comp_3",
+    "name": "Google",
+    "industry": "Technology",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+    "careerPageUrl": "https://careers.google.com",
+    "supportedRoles": ["Software Engineer", "Data Scientist", "ML Engineer", "Frontend Developer", "Backend Developer"],
+    "locations": ["Mountain View, CA", "Remote", "New York, NY", "Zurich, CH", "Bengaluru, IN"]
+  },
+  {
+    "id": "comp_4",
+    "name": "Meta",
+    "industry": "Technology",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
+    "careerPageUrl": "https://www.metacareers.com",
+    "supportedRoles": ["Software Engineer", "Data Scientist", "ML Engineer", "Frontend Developer", "Backend Developer"],
+    "locations": ["Menlo Park, CA", "Remote", "London, UK", "Seattle, WA"]
+  },
+  {
+    "id": "comp_5",
+    "name": "NVIDIA",
+    "industry": "Semiconductors",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/2/21/Nvidia_logo.svg",
+    "careerPageUrl": "https://www.nvidia.com/en-us/about-nvidia/careers/",
+    "supportedRoles": ["ML Engineer", "Software Engineer", "Data Scientist"],
+    "locations": ["Santa Clara, CA", "Remote", "Austin, TX"]
+  },
+  {
+    "id": "comp_6",
+    "name": "Accenture",
+    "industry": "Consulting",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg",
+    "careerPageUrl": "https://www.accenture.com/us-en/careers",
+    "supportedRoles": ["Data Analyst", "Data Scientist", "Software Engineer", "Backend Developer", "Full Stack Developer"],
+    "locations": ["Global", "Remote"]
+  },
+  {
+    "id": "comp_7",
+    "name": "TCS",
+    "industry": "IT Services",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Tata_Consultancy_Services_Logo.svg",
+    "careerPageUrl": "https://www.tcs.com/careers",
+    "supportedRoles": ["Software Engineer", "Frontend Developer", "Backend Developer", "Data Analyst"],
+    "locations": ["Mumbai, IN", "Remote", "Pune, IN", "Chennai, IN", "Bengaluru, IN", "New York, NY"]
+  }
+]

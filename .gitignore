@@ -1,4 +1,45 @@
+# Dependencies
 node_modules/
+.pnp
+.pnp.js
+
+# Testing and Cache
+.pytest_cache/
+__pycache__/
+*.py[cod]
+*$py.class
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Build Outputs
 dist/
+build/
+*.egg-info/
+
+# Environment Variables & Secrets
 .env
+.env.local
+.env.*.local
+
+# Databases & local runtime data
+*.sqlite
+*.sqlite3
+careeriq_profiles.sqlite
+
+# Operating System Files
 .DS_Store
+Thumbs.db
+
+# Antigravity & User uploads
+.user_uploaded/
+scratch/
+
+# Explicitly ensure models are tracked
+!*.joblib

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "asm_01",
+    "title": "SQL Query Optimization & Window Functions",
+    "skill": "SQL",
+    "difficulty": "Intermediate",
+    "estimatedTimeMin": 30,
+    "attempts": 2,
+    "bestScore": 86,
+    "status": "Completed",
+    "verificationBadge": "Verified Intermediate",
+    "feedback": {
+      "score": 86,
+      "skillLevel": "Proficient Intermediate",
+      "strengths": ["Complex joins", "PARTITION BY Window Functions", "Aggregation indexing"],
+      "weaknesses": ["Recursive CTE optimization", "Deadlock query isolation"],
+      "recommendedAction": "Explore indexed views and materialization for sub-second query latency"
+    }
+  },
+  {
+    "id": "asm_02",
+    "title": "Python for Data Science & Pandas Vectorization",
+    "skill": "Python",
+    "difficulty": "Advanced",
+    "estimatedTimeMin": 45,
+    "attempts": 1,
+    "bestScore": 92,
+    "status": "Completed",
+    "verificationBadge": "Verified Advanced",
+    "feedback": {
+      "score": 92,
+      "skillLevel": "Advanced Practitioner",
+      "strengths": ["Vectorized array operations", "Clean lambda logic", "Memory profiling"],
+      "weaknesses": ["Multiprocessing worker pool limits"],
+      "recommendedAction": "Ready for high-throughput pipeline engineering"
+    }
+  },
+  {
+    "id": "asm_03",
+    "title": "Machine Learning Foundations & Supervised Learning",
+    "skill": "Machine Learning",
+    "difficulty": "Intermediate",
+    "estimatedTimeMin": 40,
+    "attempts": 0,
+    "status": "Available",
+    "verificationBadge": "Unverified"
+  },
+  {
+    "id": "asm_04",
+    "title": "Inferential Statistics & A/B Testing Significance",
+    "skill": "Statistics",
+    "difficulty": "Intermediate",
+    "estimatedTimeMin": 35,
+    "attempts": 0,
+    "status": "Available",
+    "verificationBadge": "Unverified"
+  }
+]
